@@ -1,0 +1,2986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POLAI EDUCATION HUB - SSC CGL Mock Test 2026</title>
+  <style>
+    /* Premium Modern CSS Design System */
+    :root {
+      --primary: #0f62fe;
+      --primary-hover: #0043ce;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      
+      --visited: #64748b;
+      --not-answered: #dc3545;
+      --answered: #198754;
+      --marked: #8a3ffc;
+      --current: #0f62fe;
+      
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      transition: var(--transition);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none; /* Prevents copying */
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 800;
+      font-size: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: rotate 6s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .header-info h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .header-info p {
+      font-size: 11px;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .header-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .sticky-timer-box {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .timer-blink {
+      animation: blink 1s infinite alternate;
+      color: #ff8787;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    /* SCREEN MANAGEMENT */
+    .screen {
+      display: none;
+      flex: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .screen.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 1. START SCREEN */
+    .welcome-container {
+      max-width: 600px;
+      margin: 60px auto;
+      width: 100%;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .start-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .start-title h2 {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .start-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stat-badge {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .stat-badge span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text);
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.15);
+    }
+
+    .terms-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .terms-group input {
+      margin-top: 3px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .btn-start {
+      width: 100%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-start:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+    }
+
+    /* 2. TEST SCREEN LAYOUT */
+    .test-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+      flex: 1;
+      height: 100%;
+    }
+
+    @media (max-width: 992px) {
+      .test-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .left-section-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Section navigation tabs */
+    .section-tabs {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 6px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      box-shadow: var(--shadow);
+    }
+
+    .section-tab {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      cursor: not-allowed;
+      text-align: center;
+      white-space: nowrap;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .section-tab.active {
+      background: var(--primary);
+      color: white;
+      cursor: pointer;
+    }
+
+    .section-tab.locked {
+      opacity: 0.5;
+    }
+
+    .section-tab.completed {
+      background: #e6f4ea;
+      color: #137333;
+      border: 1px solid #ceead6;
+      cursor: not-allowed;
+    }
+
+    body.dark-mode .section-tab.completed {
+      background: #13733320;
+      color: #81c995;
+      border-color: #13733340;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 1s linear;
+    }
+
+    /* Question Card */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 350px;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .question-num {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .marks-badge {
+      font-size: 11px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .question-text {
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 500;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .passage-box {
+      background: var(--bg);
+      border-left: 4px solid var(--primary);
+      padding: 14px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 14px;
+      max-height: 250px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .option-card:hover {
+      border-color: var(--primary);
+      background: rgba(15, 98, 254, 0.03);
+    }
+
+    .option-card.selected {
+      border-color: var(--primary);
+      background: rgba(15, 98, 254, 0.08);
+      font-weight: 600;
+    }
+
+    .option-circle {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--text-muted);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .option-card.selected .option-circle {
+      border-color: var(--primary);
+    }
+
+    .option-card.selected .option-circle::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+
+    /* Bottom action buttons */
+    .action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-prev {
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    .btn-prev:hover {
+      background: var(--bg);
+    }
+
+    .btn-next {
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    .btn-next:hover {
+      background: var(--bg);
+    }
+
+    .btn-mark {
+      background: #f1ecfe;
+      color: #6200ee;
+      border-color: #d1c4e9;
+    }
+    .btn-mark:hover {
+      background: #ede7f6;
+    }
+
+    body.dark-mode .btn-mark {
+      background: #8a3ffc15;
+      color: #c084fc;
+      border-color: #8a3ffc30;
+    }
+
+    .btn-save {
+      background: #e6f4ea;
+      color: #137333;
+      border-color: #ceead6;
+    }
+    .btn-save:hover {
+      background: #d2ebd9;
+    }
+
+    body.dark-mode .btn-save {
+      background: #19875415;
+      color: #81c995;
+      border-color: #19875430;
+    }
+
+    .btn-clear {
+      background: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+    }
+    .btn-clear:hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 10px rgba(15, 98, 254, 0.2);
+    }
+    .btn-submit:hover {
+      box-shadow: 0 6px 14px rgba(15, 98, 254, 0.3);
+    }
+
+    /* RIGHT SIDEBAR QUESTION PALETTE */
+    .sidebar {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: fit-content;
+    }
+
+    .sidebar-title {
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      color: var(--text-muted);
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .palette-btn {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .palette-btn.active {
+      border: 2px solid var(--primary);
+      transform: scale(1.08);
+      box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.2);
+    }
+
+    .palette-btn.unvisited {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+    body.dark-mode .palette-btn.unvisited {
+      background: #334155;
+      color: #94a3b8;
+    }
+
+    .palette-btn.not-answered {
+      background: #fee2e2;
+      color: #ef4444;
+      border-color: #fca5a5;
+    }
+    body.dark-mode .palette-btn.not-answered {
+      background: #7f1d1d30;
+      color: #fca5a5;
+      border-color: #7f1d1d;
+    }
+
+    .palette-btn.answered {
+      background: #d1fae5;
+      color: #10b981;
+      border-color: #6ee7b7;
+    }
+    body.dark-mode .palette-btn.answered {
+      background: #064e3b30;
+      color: #6ee7b7;
+      border-color: #064e3b;
+    }
+
+    .palette-btn.marked {
+      background: #ede9fe;
+      color: #8b5cf6;
+      border-color: #c4b5fd;
+    }
+    body.dark-mode .palette-btn.marked {
+      background: #4c1d9530;
+      color: #c4b5fd;
+      border-color: #4c1d95;
+    }
+
+    /* Palette Legend */
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    /* 3. RESULT SCREEN */
+    .result-container {
+      max-width: 800px;
+      margin: 20px auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .result-header {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .result-header h2 {
+      font-size: 28px;
+      color: #10b981;
+      margin-bottom: 8px;
+    }
+
+    .rank-banner {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(15, 98, 254, 0.08);
+      padding: 10px 20px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .result-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .result-row span:last-child {
+      color: var(--primary);
+    }
+
+    /* Graphical Breakdown Chart */
+    .chart-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .donut-chart {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #10b981 0% 50%,
+        #ef4444 50% 70%,
+        #64748b 70% 100%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .donut-inner {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .donut-inner span {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .chart-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .chart-label-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* WARNING MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-box h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #ef4444;
+    }
+
+    .modal-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn-modal {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-modal:hover {
+      background: var(--primary-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <canvas class="confetti-canvas" id="confetti-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="logo-container">P</div>
+      <div class="header-info">
+        <h1>POLAI EDUCATION HUB</h1>
+        <p>SSC CGL MOCK TEST 2026 | Testbook Style</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="header-btn" id="theme-btn" onclick="toggleDarkMode()">
+        🌙 Dark Mode
+      </button>
+      <button class="header-btn" id="fullscreen-btn" onclick="toggleFullscreen()">
+        🖥️ Fullscreen
+      </button>
+      <div class="sticky-timer-box" id="timer-display-box" style="display:none;">
+        ⏱️ <span id="time-left-text">15:00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. START SCREEN -->
+  <div class="screen active" id="start-screen">
+    <div class="welcome-container glass-card">
+      <div class="start-title">
+        <h2>POLAI EDUCATION HUB</h2>
+        <p>🌟 SSC CGL MOCK TEST 2026 🌟</p>
+        
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-badge">
+          <span>Questions</span>
+          100 Qs
+        </div>
+        <div class="stat-badge">
+          <span>Marks</span>
+          200 Marks
+        </div>
+        <div class="stat-badge">
+          <span>Duration</span>
+          60 Mins
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="candidate-name-input">👤 Candidate Name</label>
+        <input type="text" class="form-control" id="candidate-name-input" placeholder="Enter your full name" autocomplete="off">
+      </div>
+
+      <label class="terms-group">
+        <input type="checkbox" id="terms-checkbox">
+        <span>I agree to the Terms & Conditions of the examination. I will not engage in any unfair practices or copying.</span>
+      </label>
+
+      <button class="btn-start" onclick="startTest()">
+        🚀 START TEST
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. TEST SCREEN -->
+  <div class="screen" id="test-screen">
+    <div class="test-layout">
+      <!-- Left side: sections and question details -->
+      <div class="left-section-container">
+        <!-- Sections tab bar -->
+        <div class="section-tabs" id="section-tabs-bar">
+          <!-- Dynamically filled by JS -->
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="section-progress-bar"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card">
+          <div class="question-header">
+            <span class="question-num" id="question-label">Question 01</span>
+            <span class="marks-badge" id="marks-display">Correct: +2 | Incorrect: -0.5</span>
+          </div>
+
+          <div class="question-text" id="question-content-box">
+            <!-- Dynamically loaded -->
+          </div>
+
+          <div class="options-container" id="options-container-box">
+            <!-- Dynamically loaded -->
+          </div>
+
+          <!-- Question action controls -->
+          <div class="action-row">
+            <div style="display:flex; gap:10px;">
+              <button class="btn-action btn-prev" onclick="prevQuestion()">⬅ Previous</button>
+              <button class="btn-action btn-mark" onclick="markForReview()">⭐ Mark for Review</button>
+              <button class="btn-action btn-clear" onclick="clearOption()">Clear Response</button>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn-action btn-save" onclick="saveAndNext()">💾 Save & Next</button>
+              <button class="btn-action btn-next" onclick="nextQuestion()">Next ➡</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Sidebar question palette -->
+      <div class="sidebar">
+        <div class="sidebar-title" id="sidebar-section-title">
+          Question Palette
+        </div>
+        <div class="palette-grid" id="palette-buttons-box">
+          <!-- Dyn loaded -->
+        </div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-color" style="background:#0f62fe;"></div>
+            <span>Current</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background:#198754;"></div>
+            <span>Answered</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background:#dc3545;"></div>
+            <span>Not Answered</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background:#8a3ffc;"></div>
+            <span>Marked</span>
+          </div>
+          <div class="legend-item" style="grid-column: span 2;">
+            <div class="legend-color" style="background:#64748b;"></div>
+            <span>Not Visited</span>
+          </div>
+        </div>
+
+        <button class="btn-action btn-submit" style="width:100%; justify-content:center; margin-top:10px; font-weight:700; padding:14px;" onclick="confirmManualSubmit()">
+          📝 SUBMIT TEST
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. RESULT SCREEN -->
+  <div class="screen" id="result-screen">
+    <div class="result-container glass-card">
+      <div class="result-header">
+        <h2>🎉 Congratulations!</h2>
+        <p>You have successfully completed the mock test.</p>
+        <div class="rank-banner" id="rank-display">Rank: Good</div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-details">
+          <div class="result-row">
+            <span>Candidate Name:</span>
+            <span id="res-candidate-name">XXXX</span>
+          </div>
+          <div class="result-row">
+            <span>Total Questions:</span>
+            <span>100</span>
+          </div>
+          <div class="result-row">
+            <span>Attempted:</span>
+            <span id="res-attempted">0</span>
+          </div>
+          <div class="result-row">
+            <span>Correct Answers:</span>
+            <span id="res-correct" style="color:#10b981;">0</span>
+          </div>
+          <div class="result-row">
+            <span>Wrong Answers:</span>
+            <span id="res-wrong" style="color:#ef4444;">0</span>
+          </div>
+          <div class="result-row">
+            <span>Score:</span>
+            <span id="res-score">0.00 / 200</span>
+          </div>
+          <div class="result-row">
+            <span>Percentage:</span>
+            <span id="res-percentage">0.00 %</span>
+          </div>
+          <div class="result-row">
+            <span>Time Taken:</span>
+            <span id="res-time-taken">0.00 min</span>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <div class="donut-chart" id="donut-chart-element">
+            <div class="donut-inner">
+              <span id="res-score-inner">0.0</span>
+              <span>Marks</span>
+            </div>
+          </div>
+
+          <div class="chart-labels">
+            <div class="chart-label-item">
+              <span style="color:#10b981;">● Correct</span>
+              <span id="label-correct">0</span>
+            </div>
+            <div class="chart-label-item">
+              <span style="color:#ef4444;">● Wrong</span>
+              <span id="label-wrong">0</span>
+            </div>
+            <div class="chart-label-item">
+              <span style="color:#64748b;">● Skipped</span>
+              <span id="label-skipped">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-start" style="margin-top:24px; background:linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); box-shadow:0 4px 12px rgba(139, 92, 246, 0.2);" onclick="downloadCertificate()">
+        🏆 Download Certificate
+      </button>
+    </div>
+  </div>
+
+  <!-- CUSTOM ALERTS & MODALS -->
+  <div class="modal-overlay" id="alert-modal">
+    <div class="modal-box">
+      <h3 id="alert-title">⚠ Warning</h3>
+      <p id="alert-message">Something went wrong.</p>
+      <button class="btn-modal" onclick="closeAlertModal()">OK</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // ==========================================
+    // SOUND SYNTHESIS ENGINE (100% OFFLINE WEB AUDIO API)
+    // ==========================================
+    let audioCtx = null;
+    let volumeLevel = 0.5;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playSound(type) {
+      try {
+        initAudio();
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        gain.gain.setValueAtTime(volumeLevel * 0.15, now);
+        
+        if (type === 'start') {
+          // Play a beautiful beep-boop chime (Ascending)
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now); // C5
+          osc.frequency.setValueAtTime(659.25, now + 0.12); // E5
+          osc.frequency.setValueAtTime(783.99, now + 0.24); // G5
+          osc.frequency.setValueAtTime(1046.50, now + 0.36); // C6
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.7);
+          osc.start(now);
+          osc.stop(now + 0.7);
+        } else if (type === 'click') {
+          // Subtle high-quality transient tick
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(800, now);
+          osc.frequency.exponentialRampToValueAtTime(150, now + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+          osc.start(now);
+          osc.stop(now + 0.05);
+        } else if (type === 'next') {
+          // Next question chime
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.exponentialRampToValueAtTime(1200, now + 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+          osc.start(now);
+          osc.stop(now + 0.1);
+        } else if (type === 'warning') {
+          // Periodic pulse alert for 1-minute warning
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(880, now); // A5
+          osc.frequency.setValueAtTime(440, now + 0.15); // A4
+          gain.gain.setValueAtTime(volumeLevel * 0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+          osc.start(now);
+          osc.stop(now + 0.4);
+        } else if (type === 'submit') {
+          // Fanfare sweep for final submit
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.exponentialRampToValueAtTime(1567.98, now + 1.2); // G6 sweep
+          gain.gain.setValueAtTime(volumeLevel * 0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 1.5);
+          osc.start(now);
+          osc.stop(now + 1.5);
+        }
+      } catch (e) {
+        console.warn('Audio synthesis block failed:', e);
+      }
+    }
+
+    // ==========================================
+    // DATABASE: 100 QUESTIONS
+    // ==========================================
+    const questionsData = [
+
+  // ==========================================
+  // SECTION 1: REASONING (Q1 - Q25)
+  // ==========================================
+  {
+    id: 1, sec: 1,
+    text: `Which two signs should be interchanged to make the given equation correct?<br><strong>11 - 8 + 78 / 6 x 37 = 64</strong><br><br>दिए गए समीकरण को सही बनाने के लिए किन दो चिह्नों को परस्पर बदला जाना चाहिए?<br><strong>11 - 8 + 78 / 6 x 37 = 64</strong>`,
+    options: ["(a) + and - / + और -", "(b) - and x / - और x", "(c) / and x / / और x", "(d) x and + / x और +"],
+    ans: "B"
+  },
+  {
+    id: 2, sec: 1,
+    text: `Select the option that represents the letters which, when sequentially placed from left to right in the blanks below, will complete the letter series.<br><strong>L _ MB _ _ GM _ OL _ MBO</strong><br><br>उस विकल्प का चयन कीजिए जो उन अक्षरों का प्रतिनिधित्व करता है, जिन्हें नीचे दिए गए रिक्त स्थानों में बाईं से दाईं ओर क्रमिक रूप से रखने पर अक्षर श्रृंखला पूर्ण हो जाएगी।<br><strong>L _ MB _ _ GM _ OL _ MBO</strong>`,
+    options: ["(a) G O L B G", "(b) M G B L B", "(c) G L O B G", "(d) B G L O M"],
+    ans: "A"
+  },
+  {
+    id: 3, sec: 1,
+    text: `'Expand' is related to 'Stretch' in the same way as 'Contraction' is related to '...'<br><br>'विस्तार', 'खिंचाव' से उसी प्रकार संबंधित है जिस प्रकार 'संकुचन', '...' से संबंधित है।`,
+    options: ["(a) Shrink / सिकुड़ना", "(b) Volume / आयतन", "(c) Huge / विशाल", "(d) Range / रेंज"],
+    ans: "A"
+  },
+  {
+    id: 4, sec: 1,
+    text: `In the question below there is a statement and two arguments numbered I and II. You have to decide which argument is implicit in the statement.<br><strong>Statement:</strong> The principal told the students, "The way we eat, bathe, etc. In the same way, maintaining cleanliness should be part of the routine work."<br><br>नीचे दिए गए प्रश्न में एक कथन और दो तर्क I और II दिए गए हैं। आपको निर्णय लेना होगा कि कौन सा तर्क कथन में निहित है।<br><strong>कथन:</strong> प्राचार्य ने छात्रों से कहा, 'जिस तरह से हम खाते हैं, स्नान करते हैं, आदि। वैसे ही स्वच्छता बनाए रखना, नियमित कार्य का हिस्सा होना चाहिए।'<br><br><strong>Argument / तर्क:</strong><br>I. Personal hygiene, environmental cleanliness are different areas where cleanliness is adopted. / व्यक्तिगत स्वच्छता, पर्यावरण स्वच्छता विभिन्न क्षेत्र हैं, जहाँ स्वच्छता को अपनाया जाता है।<br>II. Cleanliness is next to godliness. / स्वच्छता भक्ति से भी बढ़कर है।`,
+    options: [
+      "(a) Neither I nor II is implicit / न तो I और न ही II निहित है",
+      "(b) Only argument I is implicit / केवल तर्क I निहित है",
+      "(c) Both I and II are implicit / I और II दोनों निहित हैं",
+      "(d) Only Argument II is implicit / केवल तर्क II निहित है"
+    ],
+    ans: "B"
+  },
+  {
+    id: 5, sec: 1,
+    text: `Given below are some letters, that each of these letters has a corresponding number. Select the combination of numbers from the option so that the jumbled letters arranged accordingly will form a meaningful English word.<br><strong>H T R U O A</strong><br><strong>1 2 3 4 5 6</strong><br><br>नीचे कुछ अक्षर दिए गए हैं, जिनमें से प्रत्येक अक्षर का एक अनुरूप संख्या है। विकल्प से संख्याओं के संयोजन का चयन कीजिए ताकि तदनुसार व्यवस्थित किए गए अव्यवस्थित अक्षर से एक सार्थक अंग्रेजी शब्द बन जाए।<br><strong>H T R U O A</strong><br><strong>1 2 3 4 5 6</strong>`,
+    options: ["(a) 6, 4, 2, 1, 5, 3", "(b) 3, 4, 5, 2, 1, 6", "(c) 1, 6, 2, 4, 5, 3", "(d) 2, 1, 5, 3, 4, 6"],
+    ans: "A"
+  },
+  {
+    id: 6, sec: 1,
+    text: `In the following question, four number groups are given. In each group the three numbers are related to each other by some Logic/Rule/Relation. Three are similar on basis of same Logic/Rule/Relation. Select the odd one out from the given alternatives.<br><br>निम्नलिखित प्रश्न में, चार संख्या समूह दिए गए हैं। प्रत्येक समूह में तीन संख्याएँ किसी न किसी तर्क/नियम/सम्बन्ध द्वारा एक दूसरे से सम्बन्धित हैं। तीन समान तर्क/नियम/सम्बन्ध के आधार पर समान हैं। दिए गए विकल्पों में से विषम का चयन कीजिए।`,
+    options: ["(a) (12, 24, 41)", "(b) (13, 26, 43)", "(c) (16, 32, 49)", "(d) (17, 34, 53)"],
+    ans: "D"
+  },
+  {
+    id: 7, sec: 1,
+    text: `Select the option that is related to the fifth term in the same way as the second term is related to the first term and the fourth term is related to the third term.<br><strong>BIND : FFKH :: ROMP : VLJT :: SPUN : ?</strong><br><br>उस विकल्प का चयन कीजिए जो पाँचवें पद से उसी प्रकार संबंधित है जिस प्रकार दूसरा पद, पहले पद से संबंधित है और चौथा पद, तीसरे पद से संबंधित है।<br><strong>BIND : FFKH :: ROMP : VLJT :: SPUN : ?</strong>`,
+    options: ["(a) WMRR", "(b) VLRS", "(c) VLQR", "(d) WMQS"],
+    ans: "A"
+  },
+    {
+    id: 8, sec: 1,
+    text: `A piece of paper is folded and punched as shown below in the question figures. From the given answer figures, indicate how it will appear when opened.<br><br>एक कागज के टुकड़े को निम्न प्रश्न आकृतियों में दर्शाए गये अनुसार मोड़ा जाता है और उसमें छेद किया जाता है। खोलने के बाद वह किस उत्तर आकृति के समान दिखाई देगा?<br>
+    <div style="background:#fff; padding:15px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+      <div style="display:flex; gap:20px; align-items:center; justify-content:center; flex-wrap:wrap; margin-bottom:15px;">
+        <!-- Step 1 -->
+        <div style="text-align:center;">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="10" y="10" width="80" height="80" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+            <line x1="10" y1="50" x2="90" y2="50" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3"/>
+            <path d="M50 40 L50 60 M45 55 L50 60 L55 55" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+          </svg>
+          <div style="font-size:11px; font-weight:600; color:#64748b; margin-top:4px;">Fold Down</div>
+        </div>
+        <!-- Arrow -->
+        <div style="font-size:20px; color:#94a3b8;">➔</div>
+        <!-- Step 2 -->
+        <div style="text-align:center;">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect x="10" y="50" width="80" height="40" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+            <rect x="10" y="10" width="80" height="40" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2"/>
+            <line x1="50" y1="50" x2="50" y2="90" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3"/>
+            <path d="M60 70 L40 70 M45 65 L40 70 L45 75" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+          </svg>
+          <div style="font-size:11px; font-weight:600; color:#64748b; margin-top:4px;">Fold Left</div>
+        </div>
+        <!-- Arrow -->
+        <div style="font-size:20px; color:#94a3b8;">➔</div>
+        <!-- Step 3 -->
+        <div style="text-align:center;">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <!-- Outlines of previous positions -->
+            <rect x="10" y="10" width="80" height="80" fill="none" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2"/>
+            <!-- Active quadrant (bottom-left) -->
+            <rect x="10" y="50" width="40" height="40" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+            
+            <!-- Cuts in quadrant: -->
+            <!-- 1. Quarter circle at bottom-left corner of quadrant (x=10, y=90) -->
+            <path d="M10 80 A10 10 0 0 1 20 90" fill="none" stroke="#0f62fe" stroke-width="2"/>
+            <!-- 2. Small square at top-right corner of quadrant (x=50, y=50) -->
+            <rect x="42" y="50" width="8" height="8" fill="none" stroke="#0f62fe" stroke-width="2"/>
+            <!-- 3. Curved bracket in the center of quadrant (x=30, y=70) -->
+            <path d="M22 68 A8 8 0 0 0 32 78" fill="none" stroke="#0f62fe" stroke-width="2"/>
+          </svg>
+          <div style="font-size:11px; font-weight:600; color:#0f62fe; margin-top:4px;">Cuts Made</div>
+        </div>
+      </div>
+    </div>`,
+    options: [
+      `(a) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="90" height="90" viewBox="0 0 100 100">
+          <rect x="10" y="10" width="80" height="80" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Inner circle and square cutouts -->
+          <circle cx="50" cy="50" r="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="22" y="22" width="6" height="6" fill="#334155"/>
+          <rect x="72" y="22" width="6" height="6" fill="#334155"/>
+          <rect x="22" y="72" width="6" height="6" fill="#334155"/>
+          <rect x="72" y="72" width="6" height="6" fill="#334155"/>
+          <path d="M15 15 L25 25 M85 15 L75 25 M15 85 L25 75 M85 85 L75 75" stroke="#334155" stroke-width="1.5"/>
+        </svg>
+      </div>`,
+      `(b) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="90" height="90" viewBox="0 0 100 100">
+          <rect x="10" y="10" width="80" height="80" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Center cross squares -->
+          <rect x="44" y="36" width="12" height="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="36" y="44" width="12" height="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- 4 small circles -->
+          <circle cx="30" cy="30" r="4" fill="#334155"/>
+          <circle cx="70" cy="30" r="4" fill="#334155"/>
+          <circle cx="30" cy="70" r="4" fill="#334155"/>
+          <circle cx="70" cy="70" r="4" fill="#334155"/>
+          <!-- outer corner squares -->
+          <rect x="14" y="14" width="8" height="8" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="78" y="14" width="8" height="8" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="14" y="78" width="8" height="8" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="78" y="78" width="8" height="8" fill="none" stroke="#334155" stroke-width="1.5"/>
+        </svg>
+      </div>`,
+      `(c) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="90" height="90" viewBox="0 0 100 100">
+          <rect x="10" y="10" width="80" height="80" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Center cross squares -->
+          <rect x="44" y="38" width="12" height="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="38" y="44" width="12" height="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Outer corner arcs -->
+          <path d="M10 20 A10 10 0 0 1 20 10" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M80 10 A10 10 0 0 1 90 20" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M10 80 A10 10 0 0 1 20 90" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M80 90 A10 10 0 0 1 90 80" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Bracket-like cuts pointing outwards -->
+          <path d="M34 34 A8 8 0 0 1 24 24" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M66 34 A8 8 0 0 0 76 24" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M34 66 A8 8 0 0 0 24 76" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M66 66 A8 8 0 0 1 76 76" fill="none" stroke="#334155" stroke-width="1.5"/>
+        </svg>
+      </div>`,
+      `(d) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="90" height="90" viewBox="0 0 100 100">
+          <rect x="10" y="10" width="80" height="80" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Center cross squares -->
+          <rect x="44" y="38" width="12" height="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="38" y="44" width="12" height="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Outer corner arcs -->
+          <path d="M10 20 A10 10 0 0 1 20 10" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M80 10 A10 10 0 0 1 90 20" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M10 80 A10 10 0 0 1 20 90" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M80 90 A10 10 0 0 1 90 80" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <!-- Bracket-like cuts pointing inwards -->
+          <path d="M24 34 A8 8 0 0 1 34 24" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M76 34 A8 8 0 0 0 66 24" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M24 66 A8 8 0 0 0 34 76" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <path d="M76 66 A8 8 0 0 1 66 76" fill="none" stroke="#334155" stroke-width="1.5"/>
+        </svg>
+      </div>`
+    ],
+    ans: "D"
+  },
+  {
+    id: 9, sec: 1,
+    text: `A statement is given followed by two arguments. Decide which of the arguments is/are strong with respect to the statement.<br><strong>Statement:</strong> Life expectancy of Indians is increasing.<br><br>एक कथन के बाद दो तर्क दिए गए हैं। निर्णय कीजिये कि कथन के संबंध में कौन सा/से तर्क सबल हैं/हैं।<br><strong>कथन:</strong> भारतीयों की जीवन प्रत्याशा बढ़ रही है।<br><br><strong>Arguments / तर्क:</strong><br>I. Yes, People are getting better medical facilities. / हाँ, लोगों को बेहतर चिकित्सा सुविधाएं मिल रही हैं।<br>II. Yes, People are doing more physical exercises now. / हाँ, अब लोग अधिक शारीरिक व्यायाम कर रहे हैं।`,
+    options: [
+      "(a) Only argument II is strong / केवल तर्क II सबल है",
+      "(b) Both arguments I and II are strong / तर्क I और II दोनों सबल हैं",
+      "(c) Neither I nor II is strong / न तो I और न ही II सबल है",
+      "(d) Only argument I is strong / केवल तर्क I सबल है"
+    ],
+    ans: "B"
+  },
+    {
+    id: 10, sec: 1,
+    text: `The figure series given below follows a sequence. Choose the correct option from the list of answer figures, which should come in place of the question mark (?) if the sequence were to be continued.<br><br>नीचे दी गई आकृति श्रृंखला एक अनुक्रम का अनुसरण करती है। उत्तर आकृतियों की सूची में से सही विकल्प का चयन करें, जो प्रश्न आकृति में प्रश्नवाचक चिह्न (?) के स्थान पर आना चाहिए यदि श्रृंखला को जारी रखा जाना है।<br>
+    <div style="background:#fff; padding:15px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+      <svg width="520" height="130" viewBox="0 0 520 130" style="display:block; margin:0 auto;">
+        <!-- Box 1 -->
+        <rect x="5" y="5" width="120" height="120" fill="none" stroke="#1e293b" stroke-width="2"/>
+        <circle cx="30" cy="30" r="10" fill="#1e293b"/> <!-- Solid Circle TL -->
+        <polygon points="90,18 78,42 102,42" fill="#1e293b"/> <!-- Solid Triangle TR -->
+        <rect x="22" y="75" width="16" height="30" fill="none" stroke="#1e293b" stroke-width="2"/> <!-- Hollow Vertical Rect BL -->
+        <rect x="80" y="80" width="20" height="20" fill="none" stroke="#1e293b" stroke-width="2"/> <!-- Hollow Square BR -->
+
+        <!-- Divider 1 -->
+        <line x1="130" y1="5" x2="130" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
+
+        <!-- Box 2 -->
+        <rect x="135" y="5" width="120" height="120" fill="none" stroke="#1e293b" stroke-width="2"/>
+        <polygon points="160,18 148,42 172,42" fill="none" stroke="#1e293b" stroke-width="2"/> <!-- Hollow Triangle TL -->
+        <rect x="210" y="20" width="20" height="20" fill="none" stroke="#1e293b" stroke-width="2"/> <!-- Hollow Square TR -->
+        <circle cx="160" cy="90" r="10" fill="#1e293b"/> <!-- Solid Circle BL -->
+        <rect x="205" y="82" width="30" height="16" fill="#1e293b"/> <!-- Solid Horizontal Rect BR -->
+
+        <!-- Divider 2 -->
+        <line x1="260" y1="5" x2="260" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
+
+        <!-- Box 3 -->
+        <rect x="265" y="5" width="120" height="120" fill="none" stroke="#1e293b" stroke-width="2"/>
+        <rect x="275" y="20" width="20" height="20" fill="#1e293b"/> <!-- Solid Square TL -->
+        <rect x="337" y="15" width="16" height="30" fill="#1e293b"/> <!-- Solid Vertical Rect TR -->
+        <polygon points="290,78 278,102 302,102" fill="none" stroke="#1e293b" stroke-width="2"/> <!-- Hollow Triangle BL -->
+        <circle cx="325" cy="90" r="10" fill="none" stroke="#1e293b" stroke-width="2"/> <!-- Hollow Circle BR -->
+
+        <!-- Divider 3 -->
+        <line x1="390" y1="5" x2="390" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
+
+        <!-- Box 4 (?) -->
+        <rect x="395" y="5" width="120" height="120" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
+        <text x="455" y="70" font-size="28" font-weight="bold" fill="#64748b" text-anchor="middle">?</text>
+      </svg>
+    </div>`,
+    options: [
+      `(a) <br>
+      <div style="background:#fff; padding:8px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:5px;">
+        <svg width="100" height="100" viewBox="0 0 120 120">
+          <rect x="5" y="5" width="110" height="110" fill="none" stroke="#334155" stroke-width="2"/>
+          <rect x="15" y="22" width="30" height="16" fill="#334155"/> <!-- Solid Horizontal Rect TL -->
+          <circle cx="90" cy="30" r="10" fill="#334155"/> <!-- Solid Circle TR -->
+          <rect x="20" y="80" width="20" height="20" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Square BL -->
+          <polygon points="90,78 78,102 102,102" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Triangle BR -->
+        </svg>
+      </div>`,
+      `(b) <br>
+      <div style="background:#fff; padding:8px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:5px;">
+        <svg width="100" height="100" viewBox="0 0 120 120">
+          <rect x="5" y="5" width="110" height="110" fill="none" stroke="#334155" stroke-width="2"/>
+          <rect x="20" y="20" width="20" height="20" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Square TL -->
+          <circle cx="90" cy="30" r="10" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Circle TR -->
+          <rect x="15" y="82" width="30" height="16" fill="#334155"/> <!-- Solid Horizontal Rect BL -->
+          <polygon points="90,78 78,102 102,102" fill="#334155"/> <!-- Solid Triangle BR -->
+        </svg>
+      </div>`,
+      `(c) <br>
+      <div style="background:#fff; padding:8px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:5px;">
+        <svg width="100" height="100" viewBox="0 0 120 120">
+          <rect x="5" y="5" width="110" height="110" fill="none" stroke="#334155" stroke-width="2"/>
+          <rect x="15" y="22" width="30" height="16" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Horizontal Rect TL -->
+          <circle cx="90" cy="30" r="10" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Circle TR -->
+          <rect x="20" y="80" width="20" height="20" fill="#334155"/> <!-- Solid Square BL -->
+          <polygon points="90,78 78,102 102,102" fill="#334155"/> <!-- Solid Triangle BR -->
+        </svg>
+      </div>`,
+      `(d) <br>
+      <div style="background:#fff; padding:8px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:5px;">
+        <svg width="100" height="100" viewBox="0 0 120 120">
+          <rect x="5" y="5" width="110" height="110" fill="none" stroke="#334155" stroke-width="2"/>
+          <rect x="15" y="22" width="30" height="16" fill="#334155"/> <!-- Solid Horizontal Rect TL -->
+          <circle cx="90" cy="30" r="10" fill="#334155"/> <!-- Solid Circle TR -->
+          <polygon points="30,78 18,102 42,102" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Triangle BL -->
+          <rect x="80" y="80" width="20" height="20" fill="none" stroke="#334155" stroke-width="2"/> <!-- Hollow Square BR -->
+        </svg>
+      </div>`
+    ],
+    ans: "C"
+  },
+  {
+    id: 11, sec: 1,
+    text: `The average age of A, B, C is 8 years more than B's age. If the age of both A and C together is 56 years, then B's age is:<br><br>A, B, C की औसत आयु B की आयु से 8 वर्ष अधिक है। यदि A और C दोनों की आयु का योग 56 वर्ष है, तो B की आयु कितनी है?`,
+    options: ["(a) 18 years / वर्ष", "(b) 24 years / वर्ष", "(c) 12 years / वर्ष", "(d) 16 years / वर्ष"],
+    ans: "D"
+  },
+  {
+    id: 12, sec: 1,
+    text: `Refer to the given number-symbol series and answer the question that follows:<br><strong>(Left/बाएँ) 3 * @ 5 % 3 + = 3 3 % 8 7 & 5 $ 7 5 & # * 8 2 @ 5 (Right/दाएँ)</strong><br><br>How many such symbols are there (from left to right) which are immediately preceded by a number and also immediately followed by a number?<br><br>दी गई संख्या, प्रतीक श्रेणी का संदर्भ लें और निम्नलिखित प्रश्न का उत्तर दें:<br><strong>(Left/बाएँ) 3 * @ 5 % 3 + = 3 3 % 8 7 & 5 $ 7 5 & # * 8 2 @ 5 (Right/दाएँ)</strong><br><br>ऐसे कितने प्रतीक हैं (बाएं से दाएं) जिनके ठीक पहले एक संख्या है और ठीक बाद में भी एक संख्या है?`,
+    options: ["(a) 4", "(b) 5", "(c) 6", "(d) 7"],
+    ans: "B"
+  },
+  {
+    id: 13, sec: 1,
+    text: `In a line Chetan is 18th from the top and 15th from the bottom, then what is the total number of candidates in that line?<br><br>एक पंक्ति में चेतन ऊपर से 18वें और नीचे से 15वें स्थान पर है, तो उस पंक्ति में उम्मीदवारों की संख्या कुल कितनी है?`,
+    options: ["(a) 30", "(b) 31", "(c) 32", "(d) 33"],
+    ans: "C"
+  },
+    {
+    id: 14, sec: 1,
+    text: `In the given figure, the number of triangles is equal to:<br><br>दिए गए चित्र में, त्रिभुजों की संख्या कितनी है?<br>
+    <div style="background:#fff; padding:15px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+      <svg width="220" height="130" viewBox="0 0 200 110" style="display:block; margin:0 auto;">
+        <!-- Base horizontal line across the wings -->
+        <line x1="20" y1="70" x2="180" y2="70" stroke="#1e293b" stroke-width="2"/>
+        
+        <!-- Left roof edge to wing tip -->
+        <line x1="100" y1="10" x2="20" y2="70" stroke="#1e293b" stroke-width="2"/>
+        
+        <!-- Right roof edge to wing tip -->
+        <line x1="100" y1="10" x2="180" y2="70" stroke="#1e293b" stroke-width="2"/>
+        
+        <!-- Main vertical bisector from peak to square bottom -->
+        <line x1="100" y1="10" x2="100" y2="100" stroke="#1e293b" stroke-width="2"/>
+        
+        <!-- Square outer lines -->
+        <rect x="60" y="40" width="80" height="60" fill="none" stroke="#1e293b" stroke-width="2"/>
+        
+        <!-- Square Diagonals -->
+        <line x1="60" y1="40" x2="140" y2="100" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="140" y1="40" x2="60" y2="100" stroke="#1e293b" stroke-width="1.5"/>
+        
+        <!-- Wing diagonal connections (Top-left to Left tip, Top-right to Right tip) -->
+        <line x1="60" y1="40" x2="20" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="140" y1="40" x2="180" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+      </svg>
+    </div>`,
+    options: ["(a) 24", "(b) 28", "(c) 22", "(d) 26"],
+    ans: "B"
+  },
+  {
+    id: 15, sec: 1,
+    text: `Select the set in which the numbers are related in the same way as are the numbers of the following sets.<br><strong>(12, 11, 155)</strong>, <strong>(17, 21, 395)</strong><br><br>उस समुच्चय का चयन कीजिए जिसमें संख्याएँ उसी प्रकार सम्बन्धित हैं जैसे निम्नलिखित समुच्चयों की संख्याएँ सम्बन्धित हैं।<br><strong>(12, 11, 155)</strong>, <strong>(17, 21, 395)</strong>`,
+    options: ["(a) (18, 9, 165)", "(b) (14, 31, 440)", "(c) (21, 25, 571)", "(d) (38, 7, 270)"],
+    ans: "C"
+  },
+    {
+    id: 16, sec: 1,
+    text: `In the following figure, square represents Nurses, triangle represents Cyclists, circle represents Bachelors and rectangle represents Americans. Which set of letters represents Americans who are bachelors?<br><br>निम्नलिखित आकृति में, वर्ग नर्सों का प्रतिनिधित्व करता है, त्रिभुज साइकिल चालकों का प्रतिनिधित्व करता है, वृत्त अविवाहितों का प्रतिनिधित्व करता है और आयत अमेरिकी लोगों का प्रतिनिधित्व करता है। अक्षरों का कौन-सा समूह उन अमेरिकी लोगों का प्रतिनिधित्व करता है जो अविवाहित हैं?<br>
+    <div style="background:#fff; padding:15px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+      <svg width="240" height="150" viewBox="0 0 200 120" style="display:block; margin:0 auto;">
+        <!-- Background grid guides (invisible) -->
+        
+        <!-- Shape Outlines with distinct colors -->
+        <!-- 1. Circle (Bachelors) - Blue -->
+        <circle cx="100" cy="40" r="35" fill="none" stroke="#0f62fe" stroke-width="2"/>
+        
+        <!-- 2. Triangle (Cyclists) - Green -->
+        <polygon points="30,65 90,35 90,95" fill="none" stroke="#10b981" stroke-width="2"/>
+        
+        <!-- 3. Square (Nurses) - Red -->
+        <rect x="110" y="38" width="65" height="55" fill="none" stroke="#ef4444" stroke-width="2"/>
+        
+        <!-- 4. Rectangle (Americans) - Orange -->
+        <rect x="45" y="65" width="115" height="40" fill="none" stroke="#f5c211" stroke-width="2"/>
+
+        <!-- Text Labels for Regions -->
+        <text x="100" y="25" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">E</text>
+        <text x="55" y="55" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">C</text>
+        <text x="75" y="50" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">D</text>
+        <text x="100" y="52" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">G</text>
+        <text x="120" y="50" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">F</text>
+        <text x="150" y="55" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">A</text>
+        
+        <text x="55" y="80" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">L</text>
+        <text x="78" y="76" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">J</text>
+        <text x="100" y="77" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">H</text>
+        <text x="122" y="76" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">I</text>
+        <text x="145" y="85" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">K</text>
+        <text x="55" y="98" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">B</text>
+      </svg>
+    </div>`,
+    options: ["(a) LJ", "(b) DGF", "(c) IK", "(d) JHI"],
+    ans: "C"
+  },
+  {
+    id: 17, sec: 1,
+    text: `Read the given statements and conclusions carefully. Assuming that the information given in the statements is true, even if it appears to be at variance with commonly known facts, decide which of the given conclusions logically follow(s) from the statements.<br><strong>Statements:</strong><br>1) All circles are squares.<br>2) Some squares are coloured.<br>3) Some circles are triangles.<br><br>दिए गए कथनों और निष्कर्षों को ध्यानपूर्वक पढ़ें। यह मानते हुए कि कथनों में दी गई जानकारी सत्य है, भले ही यह सामान्यतः ज्ञात तथ्यों से भिन्न प्रतीत होती हो, फिर निर्णय लें कि दिए गए निष्कर्षों में से कौन-सा निष्कर्ष कथनों का तार्किक रूप से अनुसरण करता है।<br><strong>कथन:</strong><br>1) सभी वृत्त, वर्ग हैं।<br>2) कुछ वर्ग, रंगीन हैं।<br>3) कुछ वृत्त, त्रिभुज हैं।<br><br><strong>Conclusions / निष्कर्ष:</strong><br>I. Some squares are triangles. / कुछ वर्ग, त्रिभुज हैं।<br>II. Some circles are coloured. / कुछ वृत्त, रंगीन हैं।<br>III. Some squares are circles. / कुछ वर्ग, वृत्त हैं।`,
+    options: [
+      "(a) Both conclusions I and III follow / निष्कर्ष I और III दोनों अनुसरण करते हैं",
+      "(b) Only conclusion I follows / केवल निष्कर्ष I अनुसरण करता है",
+      "(c) Only conclusion III follows / केवल निष्कर्ष III अनुसरण करता है",
+      "(d) Only conclusion II follows / केवल निष्कर्ष II अनुसरण करता है"
+    ],
+    ans: "C"
+  },
+  {
+    id: 18, sec: 1,
+    text: `Choose the correct alternative from the given ones that will complete the series:<br><strong>15, 8, 35, 24, 63, 48, (?)</strong><br><br>दिए गए विकल्पों में से वह सही विकल्प चुनिए जो श्रेणी को पूरा करेगा:<br><strong>15, 8, 35, 24, 63, 48, (?)</strong>`,
+    options: ["(a) 88", "(b) 92", "(c) 99", "(d) 102"],
+    ans: "B"
+  },
+  {
+    id: 19, sec: 1,
+    text: `In a certain code language ACCOUNT is written as 'EBGNYMX' and MANOR is written as 'QZRNV'. How will PATTERN be written in the same code language?<br><br>एक निश्चित कूट भाषा में ACCOUNT को 'EBGNYMX' और MANOR को 'QZRNV' के रूप में लिखा जाता है। तो समान कूट भाषा में PATTERN को कैसे लिखा जाएगा?`,
+    options: ["(a) TZXSIQR", "(b) TZXSJQR", "(c) TBXSJQR", "(d) TBYTIQS"],
+    ans: "B"
+  },
+    {
+    id: 20, sec: 1,
+    text: `Select the correct mirror image of the given combination when the mirror is placed at line MN as shown below.<br><strong>9&amp;GR4yz</strong><br><br>जब दर्पण को रेखा MN पर दिखाया गया है तो दिए गए संयोजन की सही दर्पण छवि का चयन करें।<br><strong>9&amp;GR4yz</strong><br>
+    <div style="background:#fff; padding:12px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+      <svg width="180" height="50" viewBox="0 0 180 50">
+        <text x="15" y="35" font-size="24" font-family="'Courier New', monospace" font-weight="bold" fill="#334155" letter-spacing="2">9&amp;GR4yz</text>
+        <line x1="145" y1="5" x2="145" y2="45" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="3"/>
+        <text x="153" y="18" font-size="10" font-weight="bold" fill="#ef4444">M</text>
+        <text x="153" y="42" font-size="10" font-weight="bold" fill="#ef4444">N</text>
+      </svg>
+    </div>`,
+    options: [
+      `(a) <br>
+      <div style="background:#fff; padding:8px 16px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <!-- Starts with mirrored s -->
+        <span style="display:inline-block; transform: scaleX(-1); font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; letter-spacing: 2px;">9&amp;GR4ys</span>
+      </div>`,
+      `(b) <br>
+      <div style="background:#fff; padding:8px 16px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <!-- Correct mirror image -->
+        <span style="display:inline-block; transform: scaleX(-1); font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; letter-spacing: 2px;">9&amp;GR4yz</span>
+      </div>`,
+      `(c) <br>
+      <div style="background:#fff; padding:8px 16px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px; font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; letter-spacing: 2px;">
+        <!-- R is NOT mirrored -->
+        <span style="display:inline-block; transform: scaleX(-1);">z</span><span style="display:inline-block; transform: scaleX(-1);">y</span><span style="display:inline-block; transform: scaleX(-1);">4</span><span>R</span><span style="display:inline-block; transform: scaleX(-1);">G</span><span style="display:inline-block; transform: scaleX(-1);">&amp;</span><span style="display:inline-block; transform: scaleX(-1);">9</span>
+      </div>`,
+      `(d) <br>
+      <div style="background:#fff; padding:8px 16px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px; font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; letter-spacing: 2px;">
+        <!-- G is NOT mirrored -->
+        <span style="display:inline-block; transform: scaleX(-1);">z</span><span style="display:inline-block; transform: scaleX(-1);">y</span><span style="display:inline-block; transform: scaleX(-1);">4</span><span style="display:inline-block; transform: scaleX(-1);">R</span><span>G</span><span style="display:inline-block; transform: scaleX(-1);">&amp;</span><span style="display:inline-block; transform: scaleX(-1);">9</span>
+      </div>`
+    ],
+    ans: "B"
+  },
+  {
+    id: 21, sec: 1,
+    text: `Shaan has a total Rs. 5,500 with him. He buys product 'z' at Rs. 5,000 from this sum and then sells it to another person, thus making a profit of 15% on it. With all the money he has now, he buys product 'X' and then sells it to another person making a profit of 25% on it. What is the total money Shaan has now?<br><br>शान के पास कुल 5,500 रुपये हैं। वह इस राशि से 'z' को 5,000 रुपये में खरीदता है और फिर उसे किसी अन्य व्यक्ति को बेच देता है और उस पर 15% का लाभ कमाता है। अब उसके पास मौजूद सारे पैसों से, वह उत्पाद 'X' खरीदता है और फिर उसे किसी अन्य व्यक्ति को बेचकर उस पर 25% का लाभ कमाता है। शान के पास अब कुल कितनी धनराशि है?`,
+    options: ["(a) Rs. 7,815.50", "(b) Rs. 7,187.50", "(c) Rs. 7,812.50", "(d) Rs. 6,325.00"],
+    ans: "C"
+  },
+  {
+    id: 22, sec: 1,
+    text: `In a certain code language,<br>'A + B' means 'A is the mother of B',<br>'A - B' means 'A is the father of B',<br>'A x B' means 'A is the brother of B',<br>'A & B' means 'A is the wife of B'.<br>How is N related to R in <strong>N & P - Q + T x R</strong>?<br><br>एक निश्चित कूट भाषा में,<br>'A + B' का अर्थ है 'A, B की माता है',<br>'A - B' का अर्थ है 'A, B का पिता है',<br>'A x B' का अर्थ है 'A, B का भाई है',<br>'A & B' का अर्थ है 'A, B की पत्नी है'।<br>यदि <strong>N & P - Q + T x R</strong> है, तो N का R से क्या संबंध है?`,
+    options: ["(a) Mother's mother / नानी", "(b) Mother's sister / मौसी", "(c) Mother / माता", "(d) Father's mother / दादी"],
+    ans: "A"
+  },
+  {
+    id: 23, sec: 1,
+    text: `'IKLN' is related to 'FHIK' in a certain way based on the English alphabetical order. In the same way, 'GIJL' is related to 'DFGI'. To which of the following is 'MOPR' related?<br><br>अंग्रेजी वर्णमाला क्रम के आधार पर 'IKLN' एक निश्चित प्रकार से 'FHIK' से संबंधित है। उसी प्रकार, 'GIJL', 'DFGI' से संबंधित है। 'MOPR' निम्नलिखित में से किससे संबंधित है?`,
+    options: ["(a) JMOP", "(b) JKMO", "(c) JLMO", "(d) JLNO"],
+    ans: "C"
+  },
+  {
+    id: 24, sec: 1,
+    text: `You are given a Master Address (MA) from official records. Your task is to identify the correct candidate address that matches exactly with the master address in terms of formatting, punctuation, spelling, and structure.<br><strong>Master Address (MA): Flat 505, Building A, Green Valley Apartments, Opposite Park, Bangalore - 560001</strong><br><br>आपको आधिकारिक रिकॉर्ड से एक मास्टर पता (MA) दिया गया है। आपका कार्य उस सही उम्मीदवार पते की पहचान करना है जो फॉर्मेटिंग, विराम चिन्ह, वर्तनी और संरचना के मामले में मास्टर पते से बिल्कुल मेल खाता हो।<br><strong>मास्टर पता (MA): Flat 505, Building A, Green Valley Apartments, Opposite Park, Bangalore - 560001</strong>`,
+    options: [
+      "(a) Flat 505, Building A, Green Valey Apartments, Opposite Park, Bangalore - 560001",
+      "(b) Flat 505, Bldg A, Green Valley Apartments, Opposite Park, Bangalore - 560001",
+      "(c) Flat 505, Building A, Green Valley Apartments, Opposite Park, Bangalore - 560001",
+      "(d) Flat No. 505, Building A, Green Valley Apartments, Opposite Park, Bangalore - 560001"
+    ],
+    ans: "C"
+  },
+    {
+    id: 25, sec: 1,
+    text: `Select the option figure that is embedded in the given figure (rotation is NOT allowed).<br><br>उस विकल्प आकृति का चयन कीजिए जो दी गई आकृति में सन्निहित है (घूर्णन की अनुमति नहीं है)।<br>
+    <div style="background:#fff; padding:15px; border:1px solid #cbd5e1; border-radius:12px; display:inline-block; margin-top:10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+      <svg width="160" height="160" viewBox="0 0 100 100" style="display:block; margin:0 auto;">
+        <!-- Outer Border -->
+        <rect x="10" y="10" width="80" height="80" fill="none" stroke="#1e293b" stroke-width="2"/>
+        
+        <!-- Grid lines -->
+        <!-- Vertical -->
+        <line x1="30" y1="10" x2="30" y2="90" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="50" y1="10" x2="50" y2="90" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="70" y1="10" x2="70" y2="90" stroke="#1e293b" stroke-width="1.5"/>
+        <!-- Horizontal -->
+        <line x1="10" y1="30" x2="90" y2="30" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="10" y1="50" x2="90" y2="50" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="10" y1="70" x2="90" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+
+        <!-- Outer Corner Diagonals -->
+        <line x1="10" y1="30" x2="30" y2="10" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="70" y1="10" x2="90" y2="30" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="10" y1="70" x2="30" y2="90" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="70" y1="90" x2="90" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+
+        <line x1="10" y1="10" x2="30" y2="30" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="90" y1="10" x2="70" y2="30" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="10" y1="90" x2="30" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="90" y1="90" x2="70" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+
+        <!-- Inner Diamond lines -->
+        <line x1="10" y1="50" x2="50" y2="10" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="50" y1="10" x2="90" y2="50" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="90" y1="50" x2="50" y2="90" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="50" y1="90" x2="10" y2="50" stroke="#1e293b" stroke-width="1.5"/>
+
+        <!-- Center Cross Diagonals -->
+        <line x1="30" y1="30" x2="70" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+        <line x1="70" y1="30" x2="30" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+      </svg>
+    </div>`,
+    options: [
+      `(a) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="70" height="70" viewBox="0 0 100 100">
+          <line x1="30" y1="20" x2="30" y2="80" stroke="#334155" stroke-width="2.5"/>
+          <line x1="30" y1="20" x2="60" y2="20" stroke="#334155" stroke-width="2.5"/>
+          <line x1="60" y1="20" x2="30" y2="50" stroke="#334155" stroke-width="2.5"/>
+          <line x1="30" y1="80" x2="60" y2="50" stroke="#334155" stroke-width="2.5"/>
+        </svg>
+      </div>`,
+      `(b) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="70" height="70" viewBox="0 0 100 100">
+          <line x1="70" y1="20" x2="70" y2="80" stroke="#334155" stroke-width="2.5"/>
+          <line x1="70" y1="20" x2="40" y2="20" stroke="#334155" stroke-width="2.5"/>
+          <line x1="40" y1="20" x2="70" y2="50" stroke="#334155" stroke-width="2.5"/>
+          <line x1="70" y1="80" x2="40" y2="80" stroke="#334155" stroke-width="2.5"/>
+        </svg>
+      </div>`,
+      `(c) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="70" height="70" viewBox="0 0 100 100">
+          <rect x="25" y="50" width="30" height="30" fill="none" stroke="#334155" stroke-width="2.5"/>
+          <polygon points="55,20 85,50 55,50" fill="none" stroke="#334155" stroke-width="2.5"/>
+        </svg>
+      </div>`,
+      `(d) <br>
+      <div style="background:#fff; padding:6px; border:1px solid #cbd5e1; border-radius:8px; display:inline-block; margin-top:5px;">
+        <svg width="70" height="70" viewBox="0 0 100 100">
+          <path d="M25,35 L50,35 L75,60 L50,60 Z" fill="none" stroke="#334155" stroke-width="2.5"/>
+          <line x1="50" y1="35" x2="50" y2="60" stroke="#334155" stroke-width="2.5"/>
+        </svg>
+      </div>`
+    ],
+    ans: "A"
+  },
+  {
+    id: 28, sec: 2,
+    text: `Under the Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM) Yojana, a monthly pension of ______ rupees will be provided to the employees of unorganised sector after 60 years of age.<br><br>प्रधानमंत्री श्रम योगी मान-धन (PM-SYM) योजना के तहत, असंगठित क्षेत्र के कर्मचारियों को 60 वर्ष की आयु के बाद ______ रुपये की मासिक पेंशन प्रदान की जाएगी।`,
+    options: ["(a) 3000", "(b) 2000", "(c) 4000", "(d) 5000"],
+    ans: "A"
+  },
+  {
+    id: 29, sec: 2,
+    text: `Which of the following national movement is also known as 'August Revolution'?<br><br>निम्नलिखित में से किस राष्ट्रीय आंदोलन को 'अगस्त क्रांति' के नाम से भी जाना जाता है?`,
+    options: [
+      "(a) Khilafat movement / खिलाफत आंदोलन",
+      "(b) Swaraj Movement / स्वराज आंदोलन",
+      "(c) Quit India Movement / भारत छोड़ो आंदोलन",
+      "(d) Civil disobedience movement / सविनय अवज्ञा आंदोलन"
+    ],
+    ans: "C"
+  },
+  {
+    id: 30, sec: 2,
+    text: `The important pass that links Kerala with Tamil Nadu is:<br><br>केरल को तमिलनाडु से जोड़ने वाला महत्वपूर्ण दर्रा कौन सा है?`,
+    options: [
+      "(a) Aramboli / अरामबोली",
+      "(b) Palghat / पालघाट",
+      "(c) Bhor Ghat / भोर घाट",
+      "(d) Thalghat / थालघाट"
+    ],
+    ans: "B"
+  },
+  {
+    id: 31, sec: 2,
+    text: `Consider the following statements comparing the Simon Commission (1927) and the Nehru Report (1928):<br>1. The Simon Commission was boycotted by Indian political parties primarily due to its all-Indian composition.<br>2. The Nehru Report proposed complete independence for India as its immediate objective.<br>Which of the above is / are correct?<br><br>साइमन कमीशन (1927) और नेहरू रिपोर्ट (1928) की तुलना करते हुए निम्नलिखित कथनों पर विचार कीजिए:<br>1. साइमन कमीशन का भारतीय राजनीतिक दलों द्वारा मुख्यतः इसके अखिल भारतीय स्वरूप (सभी भारतीय सदस्यों) के कारण बहिष्कार किया गया था।<br>2. नेहरू रिपोर्ट ने भारत के लिए अपने तात्कालिक उद्देश्य के रूप में पूर्ण स्वतंत्रता का प्रस्ताव रखा था।<br>उपर्युक्त में से कौन सा/से सही है/हैं?`,
+    options: [
+      "(a) Neither 1 nor 2 / न तो 1 और न ही 2",
+      "(b) Only 1 / केवल 1",
+      "(c) Only 2 / केवल 2",
+      "(d) Both 1 and 2 / 1 और 2 दोनों"
+    ],
+    ans: "A"
+  },
+  {
+    id: 32, sec: 2,
+    text: `Who recently assumed charge as the CEO of UIDAI while continuing as Additional Secretary in MeitY? (January 2025)<br><br>हाल ही में किसने MeitY में अतिरिक्त सचिव के रूप में कार्य करते हुए UIDAI के सीईओ का पदभार ग्रहण किया है? (जनवरी 2025)`,
+    options: [
+      "(a) Ajay Bhushan Pandey / अजय भूषण पांडे",
+      "(b) Bhuvnesh Kumar / भुवनेश कुमार",
+      "(c) Rajesh Kumar Singh / राजेश कुमार सिंह",
+      "(d) Arvind Gupta / अरविंद गुप्ता"
+    ],
+    ans: "B"
+  },
+  {
+    id: 33, sec: 2,
+    text: `Which of the following statements is/are correct related to respiration?<br>(i) In alveoli, exchange of gases takes place.<br>(ii) The walls of alveoli contain an extensive network of blood vessels.<br>(iii) In human beings, the respiratory pigment is haemoglobin.<br><br>श्वसन से संबंधित निम्नलिखित में से कौन सा/से कथन सही है/हैं?<br>(i) कूपिकाओं में, गैसों का आदान-प्रदान होता है।<br>(ii) कूपिकाओं की दीवारों में रक्त वाहिकाओं का एक व्यापक जाल होता है।<br>(iii) मनुष्यों में, श्वसन वर्णक हीमोग्लोबिन होता है।`,
+    options: [
+      "(a) Only (i) / केवल (i)",
+      "(b) Only (i) and (ii) / केवल (i) और (ii)",
+      "(c) Only (i) and (iii) / केवल (i) और (iii)",
+      "(d) (i), (ii) and (iii) / (i), (ii) और (iii)"
+    ],
+    ans: "D"
+  },
+  {
+    id: 34, sec: 2,
+    text: `Harihara I was the ruler of which Dynasty?<br><br>हरिहर प्रथम किस वंश का शासक था?`,
+    options: [
+      "(a) Sangama / संगम",
+      "(b) Saluva / सलुवा",
+      "(c) Tuluva / तुलुवा",
+      "(d) Aravidu / अरविदु"
+    ],
+    ans: "A"
+  },
+  {
+    id: 35, sec: 2,
+    text: `Who instituted the land revenue system named Dahsala?<br><br>दहशाला नामक भूमि राजस्व प्रणाली किसके द्वारा स्थापित की गई थी?`,
+    options: [
+      "(a) Iltutmish / इल्तुतमिश",
+      "(b) Sher Shah / शेर शाह",
+      "(c) Akbar / अकबर",
+      "(d) Aurangzeb / औरंगजेब"
+    ],
+    ans: "C"
+  },
+  {
+    id: 36, sec: 2,
+    text: `Thaipusam festival is celebrated in which of the following Indian states?<br><br>थाईपुसम महोत्सव निम्नलिखित में से किस भारतीय राज्य में मनाया जाता है?`,
+    options: [
+      "(a) Kerala / केरल",
+      "(b) Assam / असम",
+      "(c) Tamil Nadu / तमिलनाडु",
+      "(d) Arunachal Pradesh / अरुणाचल प्रदेश"
+    ],
+    ans: "C"
+  },
+  {
+    id: 37, sec: 2,
+    text: `Article ______ states about Separation of judiciary from the executive.<br><br>अनुच्छेद ______ में न्यायपालिका को कार्यपालिका से अलग करने के बारे में बताया गया है।`,
+    options: ["(a) 46", "(b) 48", "(c) 50", "(d) 51"],
+    ans: "C"
+  },
+  {
+    id: 38, sec: 2,
+    text: `Which Article in the fundamental duties applies, when a construction worker takes his 8-year son to the site rather than sending him to school?<br><br>मौलिक कर्तव्य का कौन सा अनुच्छेद लागू होता है, जब एक निर्माण श्रमिक अपने 8 वर्षीय बेटे को स्कूल भेजने के बजाय निर्माण स्थल पर ले जाता है?`,
+    options: [
+      "(a) Article 51A (b) / अनुच्छेद 51A (b)",
+      "(b) Article 51A (k) / अनुच्छेद 51A (k)",
+      "(c) Article 51A (j) / अनुच्छेद 51A (j)",
+      "(d) Article 51A (i) / अनुच्छेद 51A (i)"
+    ],
+    ans: "B"
+  },
+  {
+    id: 39, sec: 2,
+    text: `Which of the following is the zaid crop?<br><br>निम्नलिखित में से कौन सी जायद की फसल है?`,
+    options: [
+      "(a) Cotton / कपास",
+      "(b) Cucumber / खीरा",
+      "(c) Coffee / कॉफी",
+      "(d) Millet / बाजरा"
+    ],
+    ans: "B"
+  },
+  {
+    id: 40, sec: 2,
+    text: `According to the Census of India 2011, which of the following Union Territories has the lowest density of population?<br><br>भारत की 2011 की जनगणना के अनुसार, निम्नलिखित में से किस केंद्र शासित प्रदेश में जनसंख्या का घनत्व सबसे कम है?`,
+    options: [
+      "(a) Lakshadweep / लक्षद्वीप",
+      "(b) Andaman and Nicobar Islands / अंडमान व निकोबार द्वीप समूह",
+      "(c) Puducherry / पुडुचेरी",
+      "(d) Daman and Diu / दमन और दीव"
+    ],
+    ans: "B"
+  },
+  {
+    id: 41, sec: 2,
+    text: `______ is a device used for measuring the optical activity exhibited by inorganic and organic compounds.<br><br>______ एक उपकरण है जिसका उपयोग अकार्बनिक और कार्बनिक यौगिकों द्वारा प्रदर्शित प्रकाशिक घूर्णकता/ऑप्टिकल गतिविधि को मापने के लिए किया जाता है।`,
+    options: [
+      "(a) Photometer / प्रकाशमापी",
+      "(b) Polarimeter / ध्रुवणमापी",
+      "(c) Ammeter / एमीटर",
+      "(d) Centrifuge / केंद्रप्रसारी"
+    ],
+    ans: "B"
+  },
+  {
+    id: 42, sec: 2,
+    text: `What is India's rank in the July 2025 Henley Passport Index?<br><br>जुलाई 2025 के हेनले पासपोर्ट इंडेक्स में भारत की रैंक कौन सी है?`,
+    options: ["(a) 85th", "(b) 77th", "(c) 72nd", "(d) 93rd"],
+    ans: "B"
+  },
+  {
+    id: 43, sec: 2,
+    text: `The book 'The Presidential Years' has been written by whom?<br><br>'द प्रेसिडेंशियल इयर्स' पुस्तक किसके द्वारा लिखी गई है?`,
+    options: [
+      "(a) Dr. Abdul Kalam / डॉ. अब्दुल कलाम",
+      "(b) Pranab Mukherjee / प्रणब मुखर्जी",
+      "(c) K. R. Narayanan / के. आर. नारायणन",
+      "(d) Dr. Shankardyal Sharma / डॉ. शंकरदयाल शर्मा"
+    ],
+    ans: "B"
+  },
+  {
+    id: 44, sec: 2,
+    text: `What is the theme of World Cancer Day 2025-27?<br><br>विश्व कैंसर दिवस 2025-27 का विषय क्या है?`,
+    options: [
+      "(a) Fight Against Cancer / कैंसर के खिलाफ लड़ाई",
+      "(b) United by Unique / अद्वितीय द्वारा संयुक्त",
+      "(c) Cancer-Free World / कैंसर मुक्त विश्व",
+      "(d) Stand Together Against Cancer / कैंसर के खिलाफ एकजुट होकर खड़े होना"
+    ],
+    ans: "B"
+  },
+  {
+    id: 45, sec: 2,
+    text: `Match List-I and List-II and choose the correct answer from the codes given below the lists:<br><strong>List-I / सूची-I</strong><br>A. Consolidated Fund of India / भारत की संचित निधि<br>B. Finance Commission / वित्त आयोग<br>C. Financial Emergency / वित्तीय आपातकाल<br>D. Comptroller and Auditor General / भारत के नियंत्रक एवं महालेखा परीक्षक<br><strong>List-II / सूची-II</strong><br>1. Article 266 / अनुच्छेद 266<br>2. Article 360 / अनुच्छेद 360<br>3. Article 280 / अनुच्छेद 280<br>4. Article 148 / अनुच्छेद 148`,
+    options: [
+      "(a) A - 4, B - 1, C - 3, D - 2",
+      "(b) A - 1, B - 3, C - 2, D - 4",
+      "(c) A - 3, B - 1, C - 2, D - 4",
+      "(d) A - 1, B - 2, C - 3, D - 4"
+    ],
+    ans: "B"
+  },
+  {
+    id: 46, sec: 2,
+    text: `A student by chance mixed acetone with alcohol. The mixture of acetone and alcohol can be separated by ______.<br><br>एक छात्र ने गलती से एसीटोन को अल्कोहल के साथ मिला दिया। एसीटोन और अल्कोहल के मिश्रण को ______ द्वारा पृथक किया जा सकता है।`,
+    options: [
+      "(a) sublimation / ऊर्ध्वपातन",
+      "(b) separating funnel / पृथक्करण कीप",
+      "(c) crystallization / क्रिस्टलीकरण",
+      "(d) fractional distillation / प्रभाजी आसवन"
+    ],
+    ans: "D"
+  },
+  {
+    id: 47, sec: 2,
+    text: `______ was the 10th Sikh Guru, whose father and 9th Sikh Guru Teg Bahadur, was executed by Aurangzeb.<br><br>______ 10वें सिख गुरु थे, जिनके पिता और 9वें सिख गुरु तेग बहादुर को औरंगजेब ने मार डाला था।`,
+    options: [
+      "(a) Guru Nanak / गुरु नानक",
+      "(b) Guru Angad / गुरु अंगद",
+      "(c) Guru Gobind Singh / गुरु गोविंद सिंह",
+      "(d) Guru Har Rai / गुरु हर राय"
+    ],
+    ans: "C"
+  },
+  {
+    id: 48, sec: 2,
+    text: `Which of the following diseases has symptoms of swelling of the Salivary Glands?<br><br>निम्नलिखित में से किस रोग में लार ग्रंथियों में सूजन के लक्षण दिखाई देते हैं?`,
+    options: [
+      "(a) Cataract / मोतियाबिंद",
+      "(b) Coronary artery disease / कोरोनरी धमनी रोग",
+      "(c) Pericarditis / परिहृद्शोथ",
+      "(d) Mumps / कंठमाला (गल गण्ड रोग)"
+    ],
+    ans: "D"
+  },
+  {
+    id: 49, sec: 2,
+    text: `The famous 'Chilka Lake' is located in which state?<br><br>प्रसिद्ध 'चिल्का झील' किस राज्य में स्थित है?`,
+    options: [
+      "(a) Maharashtra / महाराष्ट्र",
+      "(b) Andhra Pradesh / आंध्र प्रदेश",
+      "(c) Odisha / ओडिशा",
+      "(d) Madhya Pradesh / मध्य प्रदेश"
+    ],
+    ans: "C"
+  },
+  {
+    id: 50, sec: 2,
+    text: `Which of the following players is associated with billiards?<br><br>निम्नलिखित में से कौन-सा खिलाड़ी बिलियर्ड्स से संबंधित है?`,
+    options: [
+      "(a) Neeraj Chopra / नीरज चोपड़ा",
+      "(b) Sankalp Gupta / संकल्प गुप्ता",
+      "(c) Pankaj Advani / पंकज आडवाणी",
+      "(d) Manish Narwal / मनीष नरवाल"
+    ],
+    ans: "C"
+  }
+,
+
+  // ==========================================
+  // SECTION 3: QUANTITATIVE APTITUDE (Q51 - Q75)
+  // ==========================================
+  {
+    id: 51, sec: 3,
+    text: `The height of a trapezium is 68 cm, and the sum of its parallel sides is 75 cm. If the area of the trapezium is 6/17 times of the area of a square, then the length of the diagonal of the square is: (take &radic;<span style="text-decoration:overline">2</span> = 1.41)<br><br>एक समलंब की ऊंचाई 68 सेमी है, और इसकी समांतर भुजाओं का योग 75 सेमी है। यदि समलंब का क्षेत्रफल एक वर्ग के क्षेत्रफल का 6/17 गुना है, तो वर्ग के विकर्ण की लंबाई है: (&radic;<span style="text-decoration:overline">2</span> = 1.41 लेने पर)`,
+    options: ["(a) 127.39 cm / सेमी", "(b) 183.49 cm / सेमी", "(c) 119.85 cm / सेमी", "(d) 102.39 cm / सेमी"],
+    ans: "C"
+  },
+  {
+    id: 52, sec: 3,
+    text: `Find the value of A, if &radic;<span style="text-decoration:overline">3</span> - 3 &radic;<span style="text-decoration:overline">3</span> tan<sup>2</sup> A = 3tan A - tan<sup>3</sup> A.<br><br>यदि &radic;<span style="text-decoration:overline">3</span> - 3 &radic;<span style="text-decoration:overline">3</span> tan<sup>2</sup> A = 3tan A - tan<sup>3</sup> A है, तो A का मान ज्ञात कीजिये।`,
+    options: ["(a) 45&deg;", "(b) 15&deg;", "(c) 20&deg;", "(d) 30&deg;"],
+    ans: "C"
+  },
+  {
+    id: 53, sec: 3,
+    text: `The value of:<br><strong>[(0.7)<sup>3</sup> - (0.43)<sup>3</sup>] / [(0.7)<sup>2</sup> + 0.43 &times; 0.7 + (0.43)<sup>2</sup>]</strong> is equal to:<br><br><strong>[(0.7)<sup>3</sup> - (0.43)<sup>3</sup>] / [(0.7)<sup>2</sup> + 0.43 &times; 0.7 + (0.43)<sup>2</sup>]</strong> का मान निम्न के बराबर है:`,
+    options: ["(a) 1.13", "(b) 1.23", "(c) 0.37", "(d) 0.27"],
+    ans: "D"
+  },
+  {
+    id: 54, sec: 3,
+    text: `The angle of elevation from a point on a ground to the airplane is 60&deg;. After 15 seconds angle of elevation of the plane become 30&deg;. If the plane is flying at the height of 1500 &radic;<span style="text-decoration:overline">3</span> meters then the speed of the plane is?<br><br>एक मैदान पर एक बिंदु से हवाई जहाज का उन्नयन कोण 60&deg; है। 15 सेकंड के बाद हवाई जहाज का उन्नयन कोण 30&deg; हो जाता है। यदि हवाई जहाज 1500 &radic;<span style="text-decoration:overline">3</span> मीटर की ऊंचाई पर उड़ रहा है, तो हवाई जहाज की गति क्या है?`,
+    options: ["(a) 300 m/s (मी/से)", "(b) 200 m/s (मी/से)", "(c) 100 m/s (मी/से)", "(d) 150 m/s (मी/से)"],
+    ans: "B"
+  },
+  {
+    id: 55, sec: 3,
+    text: `The curved surface area of a solid hemisphere is 22 cm<sup>2</sup>. What is the total surface area of the hemisphere? (use &pi; = 22/7)<br><br>एक ठोस अर्धगोले का वक्र पृष्ठीय क्षेत्रफल 22 सेमी<sup>2</sup> है। अर्धगोले का कुल पृष्ठीय क्षेत्रफल कितना है? (&pi; = 22/7 का प्रयोग कीजिए)`,
+    options: ["(a) 66 cm<sup>2</sup> / सेमी<sup>2</sup>", "(b) 44 cm<sup>2</sup> / सेमी<sup>2</sup>", "(c) 33 cm<sup>2</sup> / सेमी<sup>2</sup>", "(d) 30 cm<sup>2</sup> / सेमी<sup>2</sup>"],
+    ans: "C"
+  },
+  {
+    id: 56, sec: 3,
+    text: `Two persons start running towards each other, one from A to B and the other from B to A. They cross each other in one hour. The first person reaches B 16/15 hours before the second person reaches A. If the distance between A and B is 8 km, then find the speed of the faster man.<br><br>दो व्यक्ति एक दूसरे की ओर दौड़ना शुरू करते हैं, जिनमें से एक A से B की ओर और दूसरा B से A की ओर दौड़ता है। वे एक दूसरे को एक घंटे में पार करते हैं। पहला व्यक्ति B पर दूसरे व्यक्ति के A पर पहुँचने से 16/15 घंटे पहले पहुँच जाता है। यदि A और B के बीच की दूरी 8 किमी है, तो तेज दौड़ने वाले व्यक्ति की गति ज्ञात कीजिए।`,
+    options: ["(a) 8 km/hr (किमी/घंटा)", "(b) 7 km/hr (किमी/घंटा)", "(c) 4 km/hr (किमी/घंटा)", "(d) 5 km/hr (किमी/घंटा)"],
+    ans: "D"
+  },
+  {
+    id: 57, sec: 3,
+    text: `A sum increases by 75% in 10 years at certain rate of simple interest per annum. By what percentage will the same sum increase in 6 years at the same rate of simple interest per annum?<br><br>एक राशि साधारण ब्याज की निश्चित दर से 10 वर्ष में 75% बढ़ जाती है। समान राशि वार्षिक साधारण ब्याज की समान दर से 6 वर्षों में कितने प्रतिशत बढ़ जाएगी?`,
+    options: ["(a) 42%", "(b) 45%", "(c) 38%", "(d) 48%"],
+    ans: "B"
+  },
+  {
+    id: 58, sec: 3,
+    text: `If the denominator of a fraction is multiplied by 2 and the numerator is increased by 2, the fraction becomes 1/2. If instead, the numerator is multiplied by 2 and the denominator is increased by 2, it becomes 6/7. What is the sum of the numerator and the denominator of the original fraction (in the lowest form)?<br><br>यदि किसी भिन्न के हर को 2 से गुणा कर दिया जाए और अंश को 2 से बढ़ा दिया जाए, तो वह भिन्न 1/2 हो जाता है। यदि इसके बजाय, अंश को 2 से गुणा किया जाता है और हर को 2 से बढ़ा दिया जाता है, तो यह 6/7 हो जाता है। मूल भिन्न के अंश और हर का योग क्या है (न्यूनतम रूप में)?`,
+    options: ["(a) 11", "(b) 7", "(c) 6", "(d) 8"],
+    ans: "D"
+  },
+  {
+    id: 59, sec: 3,
+    text: `In a school, there are 1260 students, out of which two-third are boys and the rest are girls. Three-fourth of the number of boys are players and half of the number of girls are also players. The number of students who are not players in the school is:<br><br>किसी विद्यालय में, 1260 विद्यार्थी हैं, जिनमें से दो-तिहाई लड़के हैं और शेष लड़कियाँ हैं। लड़कों की संख्या के तीन-चौथाई खिलाड़ी हैं और लड़कियों की संख्या के आधे भी खिलाड़ी हैं। विद्यालय में उन विद्यार्थियों की संख्या ज्ञात कीजिए जो खिलाड़ी नहीं हैं।`,
+    options: ["(a) 380", "(b) 400", "(c) 420", "(d) 450"],
+    ans: "C"
+  },
+  {
+    id: 60, sec: 3,
+    text: `A boat covers a distance of 65 km downstream in 5 hours while it takes 13 hours to cover the same distance upstream. What is the speed of the boat in still water?<br><br>एक नाव धारा के अनुकूल 65 किमी की दूरी 5 घंटे में तय करती है जबकि धारा के प्रतिकूल समान दूरी तय करने में उसे 13 घंटे लगते हैं। स्थिर जल में नाव की गति कितनी है?`,
+    options: ["(a) 8 km/h (किमी/घंटा)", "(b) 11 km/h (किमी/घंटा)", "(c) 6 km/h (किमी/घंटा)", "(d) 9 km/h (किमी/घंटा)"],
+    ans: "D"
+  },
+  {
+    id: 61, sec: 3,
+    text: `The distance between two stations A and B is 1000 km. A train starts from A and moves towards B at an average speed of 60 km/hr. Another train starts from B, 2 hours later than the train from A, and moves towards A at an average speed of 50 km/hr. When will the two trains cross each other after A starts?<br><br>दो स्टेशनों A और B के बीच की दूरी 1000 किमी है। एक रेलगाड़ी A से शुरू होती है और 60 किमी/घंटा की औसत गति से B की ओर बढ़ती है। दूसरी रेलगाड़ी B से शुरू होती है, A की ओर चलने वाली गाड़ी से 2 घंटे के बाद शुरू होती है और A की ओर 50 किमी/घंटा की औसत गति से चलती है। A की यात्रा शुरू होने के बाद दोनों रेलगाड़ी कब एक-दूसरे को पार करेंगी?`,
+    options: ["(a) 12 hours / घंटे", "(b) 10 hours / घंटे", "(c) 8 hours / घंटे", "(d) 11.5 hours / घंटे"],
+    ans: "B"
+  },
+  {
+    id: 62, sec: 3,
+    text: `Simplify:<br><strong>[ 6 - 2 { 3 - 4( 4 + 1/3 ) + 1 + 2 + 1/3 } - 3 &times; 2 ]</strong><br><br>सरलीकृत करें:<br><strong>[ 6 - 2 { 3 - 4( 4 + 1/3 ) + 1 + 2 + 1/3 } - 3 &times; 2 ]</strong>`,
+    options: ["(a) 98", "(b) 96", "(c) 92", "(d) 102"],
+    ans: "D"
+  },
+  {
+    id: 63, sec: 3,
+    text: `If the six-digit number 5z3x4y is divisible by 7, 11 and 13, then what is the value of (x + y - z)?<br><br>यदि छः अंकों की संख्या 5z3x4y 7, 11 और 13 से विभाज्य है, तो (x + y - z) का मान क्या होगा?`,
+    options: ["(a) 4", "(b) 5", "(c) 6", "(d) 3"],
+    ans: "A"
+  },
+  {
+    id: 64, sec: 3,
+    text: `When f(x) = 15x<sup>3</sup> - 14x<sup>2</sup> - 4x + 10 is divided by (3x + 2), then the remainder is:<br><br>जब f(x) = 15x<sup>3</sup> - 14x<sup>2</sup> - 4x + 10 को (3x + 2) से विभाजित किया जाता है, तो शेषफल क्या होगा?`,
+    options: ["(a) -1", "(b) 1", "(c) -2", "(d) 2"],
+    ans: "D"
+  },
+  {
+    id: 65, sec: 3,
+    text: `Two cards are drawn successively without replacement from a well-shuffled pack of 52 cards. The probability of drawing two aces is:<br><br>52 पत्तों की एक अच्छी तरह से फेंटी गई गड्डी से बिना प्रतिस्थापन के लगातार दो पत्ते निकाले जाते हैं। दो इक्के निकलने की प्रायिकता है:`,
+    options: ["(a) 3/223", "(b) 1/13", "(c) 4/223", "(d) 1/221"],
+    ans: "D"
+  },
+  {
+    id: 66, sec: 3,
+    text: `Manish bought two watches for Rs. 1056. He sold one at a loss of 25 percent and other at a profit of 25 percent. If each watch was sold for the same price, then what is the cost price of the watch which was sold at loss?<br><br>मनीष ने दो घड़ियाँ 1056 रुपये में खरीदीं। उसने एक को 25 प्रतिशत की हानि पर और दूसरी को 25 प्रतिशत के लाभ पर बेचा। यदि प्रत्येक घड़ी को समान मूल्य पर बेचा जाता है, तो हानि पर बेची गई घड़ी का क्रय मूल्य क्या है?`,
+    options: ["(a) Rs. 720 / रुपये", "(b) Rs. 660 / रुपये", "(c) Rs. 560 / रुपये", "(d) Rs. 600 / रुपये"],
+    ans: "B"
+  },
+  {
+    id: 67, sec: 3,
+    text: `The radius of a solid metallic sphere is equal to 15 cm. It is melted and drawn into a long wire of radius 15 mm having uniform cross-section. Find the length of the wire.<br><br>एक ठोस धातु के गोले की त्रिज्या 15 सेमी के बराबर है। इसे पिघलाया जाता है और एक समान अनुप्रस्थ काट वाले 15 मिमी त्रिज्या के एक लंबे तार में ढाला जाता है। तार की लंबाई ज्ञात कीजिए।`,
+    options: ["(a) 2100 cm / सेमी", "(b) 1900 cm / सेमी", "(c) 1800 cm / सेमी", "(d) 2000 cm / सेमी"],
+    ans: "D"
+  },
+  {
+    id: 68, sec: 3,
+    text: `If (3x<sup>2</sup> - 1) (x<sup>2</sup> - 1/3 x + 13/3) + (19/3 - x/3) = Ax<sup>4</sup> + Bx<sup>3</sup> + Cx<sup>2</sup> + D, where A, B, C and D are integers, then what is the value of (A - B + C - D)?<br><br>यदि (3x<sup>2</sup> - 1) (x<sup>2</sup> - 1/3 x + 13/3) + (19/3 - x/3) = Ax<sup>4</sup> + Bx<sup>3</sup> + Cx<sup>2</sup> + D है, जहाँ A, B, C और D पूर्णांक हैं, तब (A - B + C - D) का मान क्या होगा?`,
+    options: ["(a) 9", "(b) 12", "(c) 14", "(d) 16"],
+    ans: "C"
+  },
+  {
+    id: 69, sec: 3,
+    text: `The average mark obtained in a test by three students is X. If the marks of a new student is also considered, then the average marks increases by 2. What is the marks secured by the new student in the test?<br><br>एक परीक्षा में तीन छात्रों द्वारा प्राप्त औसत अंक X हैं। यदि एक नए छात्र के अंकों पर भी विचार किया जाता है, तो औसत अंक में 2 की वृद्धि होती है। नए छात्र द्वारा परीक्षा में प्राप्त अंक क्या हैं?`,
+    options: ["(a) X + 4", "(b) X + 6", "(c) X + 8", "(d) X + 2"],
+    ans: "C"
+  },
+  {
+    id: 70, sec: 3,
+    text: `In an exam Ritu got 56% marks, Smita got 92% marks and Reena got 634 marks. The maximum marks are 875. What is the average score of all 3 girls?<br><br>एक परीक्षा में रितु को 56% प्रतिशत अंक, स्मिता को 92% प्रतिशत अंक मिले और रीना को 634 अंक प्राप्त हुए। परीक्षा के अधिकतम अंक 875 हैं। सभी तीनों लड़कियों का औसत अंक कितने हैं?`,
+    options: ["(a) 1929", "(b) 815", "(c) 690", "(d) 643"],
+    ans: "D"
+  },
+  {
+    id: 71, sec: 3,
+    text: `The ratio of volume of two cylinders H1 and H2 is &radic;<span style="text-decoration:overline">2</span> : &radic;<span style="text-decoration:overline">3</span> respectively. If the ratio of height of the two cylinders H1 and H2 is 4 : 9, then what is the ratio of the curved surface area of H1 and H2 respectively?<br><br>दो बेलनों H1 और H2 के आयतनों का अनुपात क्रमशः &radic;<span style="text-decoration:overline">2</span> : &radic;<span style="text-decoration:overline">3</span> है। यदि दो बेलनों H1 और H2 की ऊंचाइयों का अनुपात 4:9 है, तो क्रमशः H1 और H2 के वक्र पृष्ठीय क्षेत्रफल का अनुपात क्या है?`,
+    options: [
+      "(a) 2<sup>9/4</sup> : 3<sup>9/4</sup>",
+      "(b) 4<sup>5/4</sup> : 3<sup>5/4</sup>",
+      "(c) 2<sup>3/4</sup> : 3<sup>3/4</sup>",
+      "(d) 2<sup>5/4</sup> : 3<sup>5/4</sup>"
+    ],
+    ans: "B"
+  },
+  {
+    id: 72, sec: 3,
+    text: `The total salary of A and B is Rs. 1215. A spent 85 5/7 % of his income and B spent 83 1/3 % of his income. The ratio of savings is 3 : 4. Find their individual salary.<br><br>A और B का कुल वेतन 1215 रुपये है। A ने अपनी आय का 85 5/7 % और B ने अपनी आय का 83 1/3 % व्यय किया है। बचत का अनुपात 3:4 है। उनका व्यक्तिगत वेतन ज्ञात कीजिए।`,
+    options: [
+      "(a) Rs. 567, Rs. 648 / रुपये 567, 648",
+      "(b) Rs. 597, Rs. 618 / रुपये 597, 618",
+      "(c) Rs. 578, Rs. 637 / रुपये 578, 637",
+      "(d) Rs. 689, Rs. 526 / रुपये 689, 526"
+    ],
+    ans: "A"
+  },
+  {
+    id: 73, sec: 3,
+    text: `There are three numbers, the 1st number is thrice the 2nd and the 3rd number is three-fourth of the 1st. If the average of the three numbers is 125, the 2nd largest number is?<br><br>तीन संख्याएँ हैं, पहली संख्या दूसरी से 8 वर्ष अधिक (तिगुनी) है और तीसरी संख्या पहली की तीन-चौथाई है। यदि तीनों संख्याओं का औसत 125 है, तो दूसरी सबसे बड़ी संख्या कौन-सी है?`,
+    options: ["(a) 135", "(b) 60", "(c) 180", "(d) 240"],
+    ans: "A"
+  },
+  {
+    id: 74, sec: 3,
+    text: `In a factory, three assembly lines, A, B and C are set to manufacture a new car. Assembly line A takes 40 days to produce 240 cars. Assembly line B can do the same job, but A is 50% as efficient as B. Assembly line A is 20% more efficient than C. They all start working simultaneously to produce the order. After 5 days, assembly line A breaks down. How many more days would it take to complete the order with the remaining lines?<br><br>एक फैक्ट्री में, एक नई कार बनाने के लिए तीन असेंबली लाइनें, A, B और C स्थापित की जाती हैं। असेंबली लाइन A को 240 कार बनाने में 40 दिन लगते हैं। असेंबली लाइन B समान कार्य कर सकती है, लेकिन A, B की तुलना में 50% कुशल है। असेंबली लाइन A, C की तुलना में 20% अधिक कुशल है। वे सभी उस ऑर्डर के लिए एक साथ कार्य करना शुरू करते हैं। 5 दिनों के बाद, असेंबली लाइन A टूट जाती है। शेष लाइनों के साथ ऑर्डर पूरा करने में कितने दिन लगेंगे?`,
+    options: ["(a) 13 9/17 days / दिन", "(b) 8 9/17 days / दिन", "(c) 12 6/17 days / दिन", "(d) 7 6/17 days / दिन"],
+    ans: "D"
+  },
+  {
+    id: 75, sec: 3,
+    text: `A certain sum becomes 4 times of itself in 5 years at a rate of simple interest. In 15 years it will become how many times of itself at the same rate of simple interest?<br><br>एक निश्चित राशि साधारण ब्याज की निश्चित दर से 5 वर्ष में 4 गुनी हो जाती है। साधारण ब्याज की समान दर पर 15 वर्ष में यह स्वयं का कितना गुना हो जाएगी?`,
+    options: ["(a) 12 times / गुना", "(b) 10 times / गुना", "(c) 9 times / गुना", "(d) 8 times / गुना"],
+    ans: "B"
+  }
+,
+
+  // ==========================================
+  // SECTION 4: ENGLISH LANGUAGE (Q76 - Q100)
+  // ==========================================
+  {
+    id: 76, sec: 4,
+    text: `Find the part of the sentence that contains an error:<br><strong>(1) The committee members were instructed to carefully and thoroughly examine / (2) every single discrepancy found within the internal ledger / (3) before they submitted their final recommendation regarding / (4) the potential termination of the chief financial officer's contract.</strong>`,
+    options: ["(a) Part 1 / भाग 1", "(b) Part 2 / भाग 2", "(c) Part 3 / भाग 3", "(d) Part 4 / भाग 4"],
+    ans: "D"
+  },
+  {
+    id: 77, sec: 4,
+    text: `Select the most appropriate ANTONYM of the underlined word in the given sentence:<br>In the village, he is known for his <u>veracity</u>.`,
+    options: ["(a) Dependability", "(b) Honesty", "(c) Deceit", "(d) Sluggishness"],
+    ans: "C"
+  },
+  {
+    id: 78, sec: 4,
+    text: `Select the most appropriate one-word substitution for the given phrase:<br><strong>A person who deals in or sells rare and secondhand books.</strong>`,
+    options: ["(a) Bibliopole", "(b) Bibliopolist", "(c) Bibliopedist", "(d) Bibliophilist"],
+    ans: "B"
+  },
+  {
+    id: 79, sec: 4,
+    text: `Select the most appropriate option that can substitute the underlined segment in the given sentence:<br>Heather <u>studied really hard during six days</u> in order to crack the entrance examination.`,
+    options: [
+      "(a) studied really hard underneath six days",
+      "(b) studied really hard during those six days",
+      "(c) studied real hard during six days",
+      "(d) studied really hard during that six days"
+    ],
+    ans: "B"
+  },
+  {
+    id: 80, sec: 4,
+    text: `Select the most appropriate one-word substitution for the given phrase:<br><strong>Pertaining to or resembling the family of plants that includes grapes and vines.</strong>`,
+    options: ["(a) Viticultural", "(b) Vitelline", "(c) Vitaceous", "(d) Vitreous"],
+    ans: "C"
+  },
+  {
+    id: 81, sec: 4,
+    text: `Select the most appropriate meaning of the given idiom:<br><strong>Breathe one's last</strong>`,
+    options: ["(a) To resign / इस्तीफा देना", "(b) To sleep / सोना", "(c) To cry / रोना", "(d) To die / मरना"],
+    ans: "D"
+  },
+  {
+    id: 82, sec: 4,
+    text: `Select the most appropriate one-word substitution for the given phrase:<br><strong>A complex geometric pattern that is self-similar across different scales.</strong>`,
+    options: ["(a) Fractious", "(b) Fraction", "(c) Fractal", "(d) Fractate"],
+    ans: "C"
+  },
+  {
+    id: 83, sec: 4,
+    text: `Select the option that expresses the given sentence in indirect speech:<br>The critic remarked, "What a magnificent performance the lead actor gave! Rarely have I seen such raw emotion on this stage."`,
+    options: [
+      "(a) The critic exclaimed that the lead actor gave a magnificent performance and that rarely have had seen raw emotion on that stage.",
+      "(b) The critic exclaimed that the lead actor had given a very magnificent performance and remarked that he had rarely seen such raw emotion on that stage.",
+      "(c) The critic exclaimed with surprise that what a magnificent performance the actor had given and that rarely had he seen such raw emotion on that stage.",
+      "(d) The critic remarked with wonder that the lead actor had given a magnificent performance and added that rarely had he seen such raw emotion on that stage."
+    ],
+    ans: "D"
+  },
+  {
+    id: 84, sec: 4,
+    text: `Select the most appropriate one-word substitution for the given phrase:<br><strong>Having infinite power.</strong>`,
+    options: ["(a) Impotent", "(b) Omnipresent", "(c) Omnipotent", "(d) Omniscient"],
+    ans: "C"
+  },
+  {
+    id: 85, sec: 4,
+    text: `Select the option that expresses the given sentence in passive voice:<br><strong>It is time to settle the outstanding debts.</strong>`,
+    options: [
+      "(a) It is time the outstanding debts should be settled.",
+      "(b) It is time to have the outstanding debts settled.",
+      "(c) It is time for the outstanding debts to be settled.",
+      "(d) The outstanding debts are time to be settled."
+    ],
+    ans: "C"
+  },
+  {
+    id: 86, sec: 4,
+    text: `Select the option that is most similar in meaning to the underlined word in the given sentence:<br>She has been for many years a <u>doughty</u> campaigner for women's rights.`,
+    options: ["(a) dastardly", "(b) deceptive", "(c) flabby", "(d) valiant"],
+    ans: "D"
+  },
+  {
+    id: 87, sec: 4,
+    text: `Given below are four jumbled sentences. Select the option that gives their correct order:<br><strong>A: Once the Sultan called the barber to shave his head.</strong><br><strong>B: The Sultan got angry.</strong><br><strong>C: In the city of Cashgar, lived a barber who was a great talker.</strong><br><strong>D: The barber started talking non-stop instead of shaving him.</strong>`,
+    options: ["(a) ACBD", "(b) BADC", "(c) CADB", "(d) DABC"],
+    ans: "C"
+  },
+  {
+    id: 88, sec: 4,
+    text: `Pick out the most effective pair of words from the given options to make the sentence meaningfully complete:<br><strong>Taking all inherent factors into consideration, commitment is the ______, the bed-rock of any ______ loving relationship.</strong>`,
+    options: [
+      "(a) Expression, perfunctory",
+      "(b) Foundation, genuinely",
+      "(c) Manifestation, deep",
+      "(d) Key, alarmingly"
+    ],
+    ans: "B"
+  },
+  {
+    id: 89, sec: 4,
+    text: `Fill in the blank by using the correct appropriate word from the following given options:<br><strong>There is a purple flower ______ the weeds.</strong>`,
+    options: ["(a) at", "(b) among", "(c) opposite", "(d) off"],
+    ans: "B"
+  },
+  {
+    id: 90, sec: 4,
+    text: `Select the most appropriate option that rectifies the underlined group of words in the given sentence:<br>By the time the new regulations are implemented next year, the corporation <u>will be operating under the outdated</u> guidelines for more than twenty years.`,
+    options: [
+      "(a) would have been operating under the outdated",
+      "(b) will operate under the outdated",
+      "(c) will have been operating under the outdated",
+      "(d) shall be operating under the outdated"
+    ],
+    ans: "C"
+  },
+  {
+    id: 91, sec: 4,
+    text: `Select the most appropriate one-word substitution for the given phrase:<br><strong>The branch of science concerned with the bodily structure of humans, animals, and other living organisms.</strong>`,
+    options: ["(a) Anatomy", "(b) Horticulture", "(c) Gastronomy", "(d) Calligraphy"],
+    ans: "A"
+  },
+  {
+    id: 92, sec: 4,
+    text: `Select the most appropriate idiom to fill in the blank:<br><strong>After a day long trek, we were so tired that we were ready to ______.</strong>`,
+    options: [
+      "(a) face the music",
+      "(b) hit the sack",
+      "(c) get into deep water",
+      "(d) go from rags to riches"
+    ],
+    ans: "B"
+  },
+  {
+    id: 93, sec: 4,
+    text: `Find the proper sequence of the four middle sentences (P, Q, R, S) between S1 and S6:<br><strong>S1: Some plants like the pea plant climb up other plants or fences by means of tendrils.</strong><br><strong>P: These tendrils are sensitive to touch.</strong><br><strong>Q: When they come in contact with any support, the part of the tendril in contact with the object does not grow as rapidly as the part of the tendril away from the object.</strong><br><strong>R: More commonly, plants respond to stimuli slowly by growing in a particular direction.</strong><br><strong>S: This causes the tendril to circle around the object and thus cling to it.</strong><br><strong>S6: Because this growth is directional, it appears as if the plant is moving.</strong>`,
+    options: ["(a) PQSR", "(b) QSRP", "(c) SRPQ", "(d) PQRS"],
+    ans: "A"
+  },
+  {
+    id: 94, sec: 4,
+    text: `Select the wrongly spelt word:`,
+    options: ["(a) microcosm", "(b) miniature", "(c) ministerial", "(d) millitant"],
+    ans: "D"
+  },
+  {
+    id: 95, sec: 4,
+    text: `Select the most appropriate idiom to fill in the blank:<br><strong>It's easy to say that you'll start exercising every day, but it is ______.</strong>`,
+    options: [
+      "(a) like fish out of water",
+      "(b) easier said than done",
+      "(c) crying wolf",
+      "(d) going the extra mile"
+    ],
+    ans: "B"
+  },
+  // Reading Comprehension Passage for Q96 - 100
+  {
+    id: 96, sec: 4,
+    text: `<div class="passage-box">
+      <strong>Read the comprehension and answer the questions below:</strong><br><br>
+      Debates over epistemology are joined by conflicts over aesthetics, which centre on whether AI can replace human art. GenAI is already eating into opportunities for creative professionals while offering amateurs the chance to produce comparable work. But such comparisons are generally unfavourable. The deeper dispute is whether this work counts as art at all, and it turns on precisely what SECARATES art from craft. The professionals argue that the composition of AI media doesn't involve enough deliberate choice to really express its creator's perspective. The amateurs counter that GenAI simply provides us with new tools whose products are no less the outcome of their creator's intentions than the photographs produced by cameras. There are even those who think the debate itself is meaningless because art is just more 'content' to be consumed.<br><br>
+      In response to GenAI, artists and art critics are increasingly retreating to a Romantic conception of art, in which its purpose is to communicate something of the artist's consciousness. But there are serious problems with prioritising communication over composition. On the one hand, though it's clear that some art is essentially expressive, much art can't or shouldn't be understood in these terms. Formal experimentation in abstract painting and modernist literature isn't restricted to expressing feelings, any more than massive collaborations in contemporary cinema or video games are reducible to a singular intent. Art can be intentionally formalist or accidentally expressive.<br><br>
+      On the other hand, it's clear that some art is inspired by the unique combination of thoughts, feelings and experiences that makes the artist who they are. Imagination is rife with sub-personal processes that generate ideas and sensations without reference to our wider choices, while the techniques that refine them are supra-personal methods that evolve as they're passed between people. Even if art isn't defined by human input, there's still much to be feared from automation. GenAI systems are increasingly able to produce recognisable examples from requested genres, but true novelty is extremely rare. There's a fairly simple explanation for this: systems designed to create coherent outputs by generating predictable ones struggle to produce unpredictable outputs that aren't incoherent. Thus, one danger is that our culture will become aesthetically bland as we're fed endless permutations on the same media. Some might respond that novelty is unimportant as long as we're enjoying ourselves. But this suggests a subtler danger: that our culture will become aesthetically atomised as we're each fed media that's tailored to our specific tastes.
+    </div><br>
+    <strong>What is the author's tone and ultimate concern regarding the "aesthetically atomised" future?</strong>`,
+    options: [
+      "(a) Tone: Cynical; Concern: That the consumption of 'content' will eventually lead to the total economic collapse of the creative professional class.",
+      "(b) Tone: Analytical; Concern: That personal tailoring of media will isolate individuals from shared cultural experiences, posing a deeper threat than mere blandness.",
+      "(c) Tone: Dismissive; Concern: That users are becoming too 'enjoyment-focused,' which prevents them from appreciating the difficulty of traditional craft.",
+      "(d) Tone: Apprehensive; Concern: That GenAI will eventually master 'unpredictable outputs,' leading to a culture that is incoherent rather than bland."
+    ],
+    ans: "B"
+  },
+  {
+    id: 97, sec: 4,
+    text: `<div class="passage-box" style="font-size:0.9em; max-height:150px; overflow-y:auto; border-left:3px solid #cbd5e1; padding-left:10px; margin-bottom:10px;">
+      [Same Passage as Q96]
+    </div>
+    <strong>Based on the passage, why does the author believe "true novelty" is an inherent struggle for current GenAI systems?</strong>`,
+    options: [
+      "(a) Because the systems are intentionally programmed by humans to avoid unpredictable outputs that might be perceived as offensive.",
+      "(b) Because the sub-personal processes of human imagination cannot be mathematically modeled by supra-personal algorithms.",
+      "(c) Because the drive for coherent, predictable output creates a logical barrier against the production of 'unpredictable yet coherent' novelty.",
+      "(d) Because AI lacks the 'Romantic consciousness' required to intentionally engage in formal experimentation or modernist abstraction."
+    ],
+    ans: "C"
+  },
+  {
+    id: 98, sec: 4,
+    text: `<div class="passage-box" style="font-size:0.9em; max-height:150px; overflow-y:auto; border-left:3px solid #cbd5e1; padding-left:10px; margin-bottom:10px;">
+      [Same Passage as Q96]
+    </div>
+    <strong>Which statement best synthesizes the author's argument regarding the "Romantic conception" of art?</strong>`,
+    options: [
+      "(a) It is the only viable defense against GenAI because it emphasizes the irreplaceable value of the artist's unique consciousness.",
+      "(b) It is a flawed retreat because it fails to account for art that is intentionally formalist, accidentally expressive, or the result of massive collaboration.",
+      "(c) It correctly identifies communication as the primary purpose of art, though it mistakenly devalues the role of 'content' consumption.",
+      "(d) It is an elitist framework that GenAI amateurs are successfully dismantling by proving that craft and art are functionally identical."
+    ],
+    ans: "B"
+  },
+  {
+    id: 99, sec: 4,
+    text: `<div class="passage-box" style="font-size:0.9em; max-height:150px; overflow-y:auto; border-left:3px solid #cbd5e1; padding-left:10px; margin-bottom:10px;">
+      [Same Passage as Q96]
+    </div>
+    <strong>According to the author's critique of the creative process, how do "imagination" and "technique" function in relation to the artist's "personal unity"?</strong>`,
+    options: [
+      "(a) Imagination is a deliberate personal choice, while technique is an external, supra-personal method passed between individuals.",
+      "(b) Both imagination and technique are expressions of a unified consciousness that GenAI is currently unable to replicate.",
+      "(c) Imagination operates through sub-personal processes independent of wider choices, while technique relies on supra-personal methods inherited from others.",
+      "(d) Technique is a sub-personal reflex, whereas imagination is a supra-personal collective drive that ensures true novelty in art."
+    ],
+    ans: "C"
+  },
+  {
+    id: 100, sec: 4,
+    text: `<div class="passage-box" style="font-size:0.9em; max-height:150px; overflow-y:auto; border-left:3px solid #cbd5e1; padding-left:10px; margin-bottom:10px;">
+      [Same Passage as Q96]
+    </div>
+    <strong>Which of the following titles best captures the scope and philosophical depth of the passage?</strong>`,
+    options: [
+      "(a) The Professional's Plaint: Why Generative AI Fails the Test of Deliberate Intent",
+      "(b) Beyond Expression: Re-evaluating the Ontological Boundaries of Art in the Age of Automation",
+      "(c) The Predictability Paradox: How GenAI's Search for Coherence Destroys Modernist Literature",
+      "(d) Romanticism's Last Stand: A Defense of Human Consciousness Against Algorithmic Craft"
+    ],
+    ans: "B"
+  }
+
+    ];
+
+    // ==========================================
+    // STATE VARIABLES
+    // ==========================================
+    const sections = [
+      { id: 1, name: "General Intelligence & Reasoning", startQ: 1, endQ: 25 },
+      { id: 2, name: "General Awareness", startQ: 26, endQ: 50 },
+      { id: 3, name: "Quantitative Aptitude", startQ: 51, endQ: 75 },
+      { id: 4, name: "English Language", startQ: 76, endQ: 100 }
+    ];
+
+    let currentSectionIdx = 0;
+    let currentQuestionId = 1;
+    let candidateName = "";
+    
+    // User response arrays / structures
+    let userAnswers = {}; // Map of { questionId: selectedIndex (0..3) }
+    let questionStates = {}; // Map of { questionId: 'unvisited'|'not-answered'|'answered'|'marked' }
+
+    // Timers (in seconds)
+    const totalTimeAllowed = 60 * 60; // 60 minutes
+    const sectionTimeAllowed = 15 * 60; // 15 minutes per section
+    
+    let overallTimeSpent = 0;
+    let sectionTimeRemaining = sectionTimeAllowed;
+    let timerInterval = null;
+    let warningAudioPlayed = false;
+
+    // Initialize all states
+    questionsData.forEach(q => {
+      questionStates[q.id] = 'unvisited';
+    });
+
+    // ==========================================
+    // START PAGE ACTIONS
+    // ==========================================
+    function startTest() {
+      const nameInput = document.getElementById("candidate-name-input");
+      const termsCheck = document.getElementById("terms-checkbox");
+
+      candidateName = nameInput.value.trim();
+      if (!candidateName) {
+        customAlert("Candidate Info Required", "Please enter your name to proceed.");
+        return;
+      }
+
+      if (!termsCheck.checked) {
+        customAlert("Terms Agreement Required", "You must agree to the Terms & Conditions before starting.");
+        return;
+      }
+
+      // Play Sound
+      playSound('start');
+
+      // Shift screen
+      document.getElementById("start-screen").classList.remove("active");
+      document.getElementById("test-screen").classList.add("active");
+      document.getElementById("timer-display-box").style.display = "flex";
+
+      // Initialize test UI
+      renderSectionTabs();
+      loadQuestion(1);
+      startTimers();
+    }
+
+    // ==========================================
+    // TIMER ENGINE
+    // ==========================================
+    function startTimers() {
+      timerInterval = setInterval(() => {
+        overallTimeSpent++;
+        sectionTimeRemaining--;
+
+        // Warning sound at 1 minute remaining in current section
+        if (sectionTimeRemaining === 60 && !warningAudioPlayed) {
+          playSound('warning');
+          warningAudioPlayed = true;
+          // Blink effect
+          document.getElementById("timer-display-box").classList.add("timer-blink");
+        }
+
+        // Section timeout
+        if (sectionTimeRemaining <= 0) {
+          handleSectionTimeout();
+        } else {
+          // Render Timer display
+          const min = Math.floor(sectionTimeRemaining / 60);
+          const sec = sectionTimeRemaining % 60;
+          document.getElementById("time-left-text").innerText = 
+            `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+
+          // Update Progress Bar
+          const progressPercent = ((sectionTimeAllowed - sectionTimeRemaining) / sectionTimeAllowed) * 100;
+          document.getElementById("section-progress-bar").style.width = `${progressPercent}%`;
+        }
+      }, 1000);
+    }
+
+    function handleSectionTimeout() {
+      playSound('warning');
+      document.getElementById("timer-display-box").classList.remove("timer-blink");
+      warningAudioPlayed = false;
+
+      if (currentSectionIdx < 3) {
+        customAlert("Section Completed", `Time has ended for ${sections[currentSectionIdx].name}. Moving automatically to the next section.`);
+        // Switch section
+        currentSectionIdx++;
+        sectionTimeRemaining = sectionTimeAllowed;
+        renderSectionTabs();
+        
+        // Load first question of new section
+        const firstQId = sections[currentSectionIdx].startQ;
+        loadQuestion(firstQId);
+      } else {
+        // Last section finished -> Auto submit
+        autoSubmitTest();
+      }
+    }
+
+    // ==========================================
+    // RENDERING & INTERACTION
+    // ==========================================
+    function renderSectionTabs() {
+      const bar = document.getElementById("section-tabs-bar");
+      bar.innerHTML = "";
+
+      sections.forEach((sec, idx) => {
+        const tab = document.createElement("button");
+        tab.className = "section-tab";
+        
+        // Active section styles
+        if (idx === currentSectionIdx) {
+          tab.classList.add("active");
+        } else if (idx < currentSectionIdx) {
+          tab.classList.add("completed");
+          tab.innerHTML = `✓ ${sec.name}`;
+        } else {
+          tab.classList.add("locked");
+          tab.innerHTML = `🔒 ${sec.name}`;
+        }
+
+        bar.appendChild(tab);
+      });
+    }
+
+    function loadQuestion(qId) {
+      currentQuestionId = qId;
+      const q = questionsData.find(item => item.id === qId);
+      if (!q) return;
+
+      // Ensure state is marked as visited / not-answered if it was unvisited
+      if (questionStates[qId] === 'unvisited') {
+        questionStates[qId] = 'not-answered';
+      }
+
+      // Title/Label
+      document.getElementById("question-label").innerText = `Question ${q.id.toString().padStart(2, '0')}`;
+      document.getElementById("sidebar-section-title").innerText = sections[currentSectionIdx].name;
+
+      // Question body
+      document.getElementById("question-content-box").innerHTML = q.text;
+
+      // Load Options
+      const optionsBox = document.getElementById("options-container-box");
+      optionsBox.innerHTML = "";
+
+      q.options.forEach((opt, idx) => {
+        const card = document.createElement("div");
+        card.className = "option-card";
+        if (userAnswers[qId] === idx) {
+          card.classList.add("selected");
+        }
+
+        card.innerHTML = `
+          <div class="option-circle"></div>
+          <div>${opt}</div>
+        `;
+
+        card.onclick = () => selectOption(idx);
+        optionsBox.appendChild(card);
+      });
+
+      // Render Question Palette
+      renderPalette();
+    }
+
+    function renderPalette() {
+      const paletteBox = document.getElementById("palette-buttons-box");
+      paletteBox.innerHTML = "";
+
+      const activeSec = sections[currentSectionIdx];
+      for (let i = activeSec.startQ; i <= activeSec.endQ; i++) {
+        const btn = document.createElement("button");
+        btn.className = "palette-btn";
+        btn.innerText = i;
+
+        // Apply state colors
+        const state = questionStates[i];
+        btn.classList.add(state);
+
+        if (i === currentQuestionId) {
+          btn.classList.add("active");
+        }
+
+        // Jump handler (within same section only!)
+        btn.onclick = () => {
+          playSound('click');
+          loadQuestion(i);
+        };
+
+        paletteBox.appendChild(btn);
+      }
+    }
+
+    function selectOption(optIdx) {
+      playSound('click');
+      userAnswers[currentQuestionId] = optIdx;
+      
+      // Update display selected
+      const cards = document.querySelectorAll(".option-card");
+      cards.forEach((card, idx) => {
+        if (idx === optIdx) {
+          card.classList.add("selected");
+        } else {
+          card.classList.remove("selected");
+        }
+      });
+
+      // Update state
+      if (questionStates[currentQuestionId] !== 'marked') {
+        questionStates[currentQuestionId] = 'answered';
+      }
+      renderPalette();
+    }
+
+    function clearOption() {
+      playSound('click');
+      delete userAnswers[currentQuestionId];
+      
+      const cards = document.querySelectorAll(".option-card");
+      cards.forEach(card => card.classList.remove("selected"));
+
+      questionStates[currentQuestionId] = 'not-answered';
+      renderPalette();
+    }
+
+    function markForReview() {
+      playSound('click');
+      questionStates[currentQuestionId] = 'marked';
+      renderPalette();
+      // Auto move next
+      moveNext();
+    }
+
+    function saveAndNext() {
+      playSound('next');
+      if (userAnswers[currentQuestionId] !== undefined) {
+        questionStates[currentQuestionId] = 'answered';
+      } else {
+        questionStates[currentQuestionId] = 'not-answered';
+      }
+      renderPalette();
+      // Auto move next
+      moveNext();
+    }
+
+    function nextQuestion() {
+      playSound('click');
+      moveNext();
+    }
+
+    function prevQuestion() {
+      playSound('click');
+      const activeSec = sections[currentSectionIdx];
+      if (currentQuestionId > activeSec.startQ) {
+        loadQuestion(currentQuestionId - 1);
+      } else {
+        customAlert("Navigation Bound", "This is the first question of the active section.");
+      }
+    }
+
+    function moveNext() {
+      const activeSec = sections[currentSectionIdx];
+      if (currentQuestionId < activeSec.endQ) {
+        loadQuestion(currentQuestionId + 1);
+      } else {
+        customAlert("Section End Reached", "You have reached the end of this section. Please review your answers or wait for the section timer to complete.");
+      }
+    }
+
+    // ==========================================
+    // SUBMISSION & RESULTS
+    // ==========================================
+    function confirmManualSubmit() {
+      playSound('click');
+      const ansCount = Object.keys(userAnswers).length;
+      if (confirm(`Are you sure you want to submit the Mock Test? You have answered ${ansCount} / 100 questions. You cannot edit responses after submission.`)) {
+        autoSubmitTest();
+      }
+    }
+
+    function autoSubmitTest() {
+      clearInterval(timerInterval);
+      playSound('submit');
+      
+      document.getElementById("timer-display-box").style.display = "none";
+      
+      // Calculate scores
+      let correctCount = 0;
+      let wrongCount = 0;
+      let attemptedCount = 0;
+
+      questionsData.forEach(q => {
+        const userAns = userAnswers[q.id];
+        if (userAns !== undefined) {
+          attemptedCount++;
+          // Options are indexed 0..3 matching A, B, C, D
+          const choiceLetter = String.fromCharCode(65 + userAns); // 'A', 'B', 'C', 'D'
+          if (choiceLetter === q.ans) {
+            correctCount++;
+          } else {
+            wrongCount++;
+          }
+        }
+      });
+
+      // Marks calculation: +2 for correct, -0.5 for wrong
+      const score = (correctCount * 2) - (wrongCount * 0.5);
+      const percentage = (score / 200) * 100;
+      const timeTakenMin = (overallTimeSpent / 60).toFixed(2);
+
+      // Rank classification
+      let rank = "Average";
+      if (score >= 160) rank = "Excellent";
+      else if (score >= 120) rank = "Good";
+
+      // Render Results Page
+      document.getElementById("res-candidate-name").innerText = candidateName;
+      document.getElementById("res-attempted").innerText = attemptedCount;
+      document.getElementById("res-correct").innerText = correctCount;
+      document.getElementById("res-wrong").innerText = wrongCount;
+      document.getElementById("res-score").innerText = `${score.toFixed(2)} / 200`;
+      document.getElementById("res-percentage").innerText = `${percentage.toFixed(2)} %`;
+      document.getElementById("res-time-taken").innerText = `${timeTakenMin} min`;
+      document.getElementById("rank-display").innerText = `Rank: ${rank}`;
+      document.getElementById("res-score-inner").innerText = score.toFixed(1);
+
+      document.getElementById("label-correct").innerText = correctCount;
+      document.getElementById("label-wrong").innerText = wrongCount;
+      document.getElementById("label-skipped").innerText = 100 - attemptedCount;
+
+      // Update Donut Chart CSS conic-gradient
+      const correctPercent = (correctCount / 100) * 100;
+      const wrongPercent = (wrongCount / 100) * 100;
+      const skippedPercent = 100 - correctPercent - wrongPercent;
+      
+      const chartEl = document.getElementById("donut-chart-element");
+      chartEl.style.background = `conic-gradient(
+        #10b981 0% ${correctPercent}%,
+        #ef4444 ${correctPercent}% ${correctPercent + wrongPercent}%,
+        #64748b ${correctPercent + wrongPercent}% 100%
+      )`;
+
+      // Hide test screen and show results
+      document.getElementById("test-screen").classList.remove("active");
+      document.getElementById("result-screen").classList.add("active");
+
+      // Trigger Confetti
+      startConfetti();
+    }
+
+    // ==========================================
+    // EXPORT CERTIFICATE (CANVAS TO PNG)
+    // ==========================================
+    function downloadCertificate() {
+      playSound('click');
+      const canvas = document.createElement("canvas");
+      canvas.width = 1000;
+      canvas.height = 700;
+      const ctx = canvas.getContext("2d");
+
+      // Draw premium white background
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, 1000, 700);
+
+      // Draw elegant double border with gradient
+      const borderGrad = ctx.createLinearGradient(0, 0, 1000, 700);
+      borderGrad.addColorStop(0, "#0f62fe");
+      borderGrad.addColorStop(1, "#0043ce");
+      
+      ctx.strokeStyle = borderGrad;
+      ctx.lineWidth = 14;
+      ctx.strokeRect(30, 30, 940, 640);
+      
+      ctx.strokeStyle = "#e2e8f0";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(45, 45, 910, 610);
+
+      // Draw Corner Decorative Gold Accents
+      ctx.fillStyle = "#f5c211";
+      // Top Left
+      ctx.fillRect(45, 45, 30, 10);
+      ctx.fillRect(45, 45, 10, 30);
+      // Top Right
+      ctx.fillRect(925, 45, 30, 10);
+      ctx.fillRect(945, 45, 10, 30);
+      // Bottom Left
+      ctx.fillRect(45, 645, 30, 10);
+      ctx.fillRect(45, 625, 10, 30);
+      // Bottom Right
+      ctx.fillRect(925, 645, 30, 10);
+      ctx.fillRect(945, 625, 10, 30);
+
+      // Header Brand Text
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#0f62fe";
+      ctx.font = "bold 26px sans-serif";
+      ctx.fillText("POLAI EDUCATION HUB", 500, 120);
+
+      // Subtitle
+      ctx.fillStyle = "#64748b";
+      ctx.font = "bold 14px sans-serif";
+      ctx.fillText("CERTIFICATE OF COMPLETION", 500, 160);
+
+      // Award text line
+      ctx.fillStyle = "#1e293b";
+      ctx.font = "italic 16px serif";
+      ctx.fillText("This is to certify that", 500, 230);
+
+      // Candidate Name (Enlarged)
+      ctx.fillStyle = "#0f62fe";
+      ctx.font = "bold 38px sans-serif";
+      ctx.fillText(candidateName.toUpperCase(), 500, 300);
+
+      // Description line
+      ctx.fillStyle = "#1e293b";
+      ctx.font = "16px sans-serif";
+      ctx.fillText("has successfully completed the", 500, 360);
+
+      ctx.fillStyle = "#1e293b";
+      ctx.font = "bold 20px sans-serif";
+      ctx.fillText("SSC CGL MOCK TEST 2026", 500, 400);
+
+      // Metrics / Scores
+      const correctCount = parseInt(document.getElementById("res-correct").innerText);
+      const wrongCount = parseInt(document.getElementById("res-wrong").innerText);
+      const score = (correctCount * 2) - (wrongCount * 0.5);
+      const percentage = ((score / 200) * 100).toFixed(1);
+
+      ctx.fillStyle = "#64748b";
+      ctx.font = "14px sans-serif";
+      ctx.fillText(`Score: ${score.toFixed(2)} / 200   |   Percentage: ${percentage}%`, 500, 450);
+
+      // Footer - Date & Signatures
+      const today = new Date();
+      const dateString = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      ctx.fillStyle = "#1e293b";
+      ctx.font = "14px sans-serif";
+      
+      // Date Left
+      ctx.fillText(`Date: ${dateString}`, 250, 560);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "#cbd5e1";
+      ctx.beginPath();
+      ctx.moveTo(150, 540);
+      ctx.lineTo(350, 540);
+      ctx.stroke();
+
+      // Signature Right
+      ctx.font = "italic bold 18px cursive";
+      ctx.fillStyle = "#0f62fe";
+      ctx.fillText("Polai Education Hub", 750, 530);
+      ctx.fillStyle = "#1e293b";
+      ctx.font = "14px sans-serif";
+      ctx.fillText("Authorized Signature", 750, 560);
+      ctx.beginPath();
+      ctx.moveTo(650, 540);
+      ctx.lineTo(850, 540);
+      ctx.stroke();
+
+      // Create download trigger
+      const link = document.createElement("a");
+      link.download = `Polai_Mock_Certificate_${candidateName.replace(/\s+/g, '_')}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+
+    // ==========================================
+    // CONFETTI SYSTEMS (CANVAS DYNAMICS)
+    // ==========================================
+    let confettiActive = false;
+    let confettiParticles = [];
+    const confettiColors = ["#0f62fe", "#0043ce", "#10b981", "#ef4444", "#f5c211", "#8b5cf6"];
+
+    function startConfetti() {
+      confettiActive = true;
+      confettiParticles = [];
+      const canvas = document.getElementById("confetti-canvas");
+      const ctx = canvas.getContext("2d");
+      
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      for (let i = 0; i < 150; i++) {
+        confettiParticles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * canvas.height,
+          color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+          tilt: Math.random() * 10 - 5,
+          tiltAngleIncremental: Math.random() * 0.07 + 0.02,
+          tiltAngle: 0
+        });
+      }
+
+      function drawFrame() {
+        if (!confettiActive) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        confettiParticles.forEach((p, idx) => {
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle - idx / 3) * 15;
+
+          if (p.y > canvas.height) {
+            // Recycle particle
+            p.x = Math.random() * canvas.width;
+            p.y = -20;
+          }
+
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+
+        requestAnimationFrame(drawFrame);
+      }
+
+      drawFrame();
+    }
+
+    // ==========================================
+    // DIALOGS & POPUPS
+    // ==========================================
+    function customAlert(title, message) {
+      document.getElementById("alert-title").innerText = title;
+      document.getElementById("alert-message").innerText = message;
+      document.getElementById("alert-modal").style.display = "flex";
+    }
+
+    function closeAlertModal() {
+      playSound('click');
+      document.getElementById("alert-modal").style.display = "none";
+    }
+
+    // ==========================================
+    // EXTRA UTILITIES
+    // ==========================================
+    function toggleDarkMode() {
+      playSound('click');
+      const isDark = document.body.classList.toggle("dark-mode");
+      document.getElementById("theme-btn").innerText = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    }
+
+    function toggleFullscreen() {
+      playSound('click');
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn('Fullscreen entry rejected:', err);
+        });
+        document.getElementById("fullscreen-btn").innerText = "🚪 Exit Fullscreen";
+      } else {
+        document.exitFullscreen();
+        document.getElementById("fullscreen-btn").innerText = "🖥️ Fullscreen";
+      }
+    }
+
+    // ==========================================
+    // ANTI-CHEATING LISTENERS
+    // ==========================================
+    document.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      customAlert("⚠ Anti-Cheating System", "Copying not allowed.");
+    });
+
+    document.addEventListener('keydown', e => {
+      // Disable Ctrl+C, Ctrl+V, Ctrl+U, F12
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'v' || e.key === 'V' || e.key === 'u' || e.key === 'U')) ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+        customAlert("⚠ Anti-Cheating System", "Copying not allowed.");
+      }
+    });
+  </script>
+</body>
+</html>
